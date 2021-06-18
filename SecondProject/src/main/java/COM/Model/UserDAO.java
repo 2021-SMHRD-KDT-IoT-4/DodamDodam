@@ -6,14 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 public class UserDAO {
 
-	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	
+	UserDTO	info=null;
+
 	public void conn() {
 
 		try {
@@ -54,26 +56,40 @@ public class UserDAO {
 
 	}
 
-	
-	
-	
-	
-public	void my_info() {
-	
-	
-	conn();
-	
-	String sql= "select * from users";
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
-	
-	
+	public UserDTO my_info(UserDTO dto) {
+
+		conn();
+
+		String sql = "select * from users";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getId());
+			psmt.setString(3, dto.getPw());
+			psmt.setString(4, dto.getTel());
+
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+
+				String name = rs.getString(1); 
+				String id = rs.getString(2);
+				String pw = rs.getString(3);
+				String tel = rs.getString(4);
+
+			info = new UserDTO(name, id, pw, tel);
+			}
+
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return info;
+	}
+
 }
