@@ -61,6 +61,15 @@ public class UserDAO {
 public	void my_info() {
 	
 	
+	conn();
+	
+	String sql= "select * from users";
+	
+	
+	
+	
+	
+	
 	
 	
 	
