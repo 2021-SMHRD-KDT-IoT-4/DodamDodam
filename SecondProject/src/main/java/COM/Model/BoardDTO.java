@@ -12,7 +12,7 @@ public class BoardDTO {
 	public BoardDTO(int notice_seq, String notice_title, String notice_writer, String notice_content,
 			String notice_day) {
 		super();
-		this.notice_seq = notice_seq;
+		this.notice_seq = notice_seq; 
 		this.notice_title = notice_title;
 		this.notice_writer = notice_writer;
 		this.notice_content = notice_content;
