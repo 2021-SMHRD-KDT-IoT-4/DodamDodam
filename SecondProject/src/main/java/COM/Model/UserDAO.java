@@ -10,9 +10,6 @@ import java.util.ArrayList;
 
 
 
-
-
-
 public class UserDAO {
 	UserDTO info = null;
 	
@@ -134,6 +131,75 @@ public class UserDAO {
 		return info;
 
 	}
+	
+	
+	public int join(UserDTO dto) {
+		
+		conn();
+		
+		String sql = "insert into users values(?, ?, ?, ?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getId());
+			psmt.setString(3, dto.getPw());
+			psmt.setString(4, dto.getTel());
+			
+			cnt = psmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+			
+		}
+		
+		return cnt;
+		
+		
+	}
+	
+	
+	public UserDTO login(UserDTO dto) {
+		
+		conn();
+		
+		String sql = "select * from users where id = ? and pw = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				String name = rs.getString(1);
+				String id = rs.getString(2);
+				String pw = rs.getString(3);
+				String tel = rs.getString(4);
+				
+				info = new UserDTO(name, id, pw, tel);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return info;
+		
+		
+		
+		
+	}
+	
 
 	
 	public int modify_info(UserDTO dto) {

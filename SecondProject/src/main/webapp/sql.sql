@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+select * from USERS;
+=======
 select * from users;
 <<<<<<< HEAD
 select * from FAQ;
