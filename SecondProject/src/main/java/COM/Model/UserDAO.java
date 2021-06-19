@@ -5,16 +5,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+
 
 
 
 public class UserDAO {
+	UserDTO info = null;
+	ArrayList<UserDTO> list = null;
 
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-	UserDTO	info=null;
+
 
 	public void conn() {
 
@@ -56,6 +61,37 @@ public class UserDAO {
 
 	}
 
+
+	public ArrayList<UserDTO> select() {
+
+		list = new ArrayList<UserDTO>();
+		conn();
+
+		try {
+			String sql = "select * from USERS";
+
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+
+				String name = rs.getString(1);
+				String id = rs.getString(2);
+				String pw = rs.getString(3);
+				String tel = rs.getString(4);
+				info = new UserDTO(name,id, pw, tel);
+				list.add(info);
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+
 	public UserDTO my_info(UserDTO dto) {
 
 		conn();
@@ -90,6 +126,7 @@ public class UserDAO {
 			close();
 		}
 		return info;
+
 	}
 
 }
