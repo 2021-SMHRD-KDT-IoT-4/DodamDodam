@@ -22,7 +22,7 @@ public class FaqWriteDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String db_url = "jdbc:oracle:thin:@192.168.0.115:1521:xe";
+			String db_url = "jdbc:oracle:thin:@192.168.0.77:1521:xe";
 			String db_id = "secondProject";
 			String db_pw = "1234";
 
@@ -87,7 +87,7 @@ public class FaqWriteDAO {
 		ArrayList<FaqDTO> list = new ArrayList<FaqDTO>();
 		conn();
 		
-		String sql = "select * from faq order by day desc";
+		String sql = "select * from faq order by faq_seq desc";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -98,9 +98,9 @@ public class FaqWriteDAO {
 				String faq_title = rs.getString(2);
 				String faq_writer = rs.getString(3);
 				String faq_content = rs.getString(4);
-				String faq_anser = rs.getString(5);
+				String faq_answer = rs.getString(5);
 				
-				dto = new FaqDTO(faq_seq, faq_title, faq_writer, faq_content, faq_anser);
+				dto = new FaqDTO(faq_seq, faq_title, faq_writer, faq_content, faq_answer);
 				
 				list.add(dto);
 			}

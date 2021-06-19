@@ -19,7 +19,7 @@ public class NoticeWriteDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String db_url = "jdbc:oracle:thin:@192.168.0.115:1521:xe";
+			String db_url = "jdbc:oracle:thin:@192.168.0.77:1521:xe";
 			String db_id = "secondProject";
 			String db_pw = "1234";
 
@@ -32,6 +32,7 @@ public class NoticeWriteDAO {
 
 	}
 
+	
 	public void close() {
 
 		try {
@@ -65,6 +66,7 @@ public class NoticeWriteDAO {
 			psmt.setString(2, dto.getNotice_writer());
 			psmt.setString(3, dto.getNotice_content());
 
+			
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -109,7 +111,7 @@ public class NoticeWriteDAO {
 
 	public NoticeDTO showOne(int notice_seq) {
 		conn();
-		String sql = "select * from notice where noitce_seq = ?";
+		String sql = "select * from notice where notice_seq = ?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
