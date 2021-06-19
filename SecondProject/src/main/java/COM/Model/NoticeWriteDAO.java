@@ -32,6 +32,7 @@ public class NoticeWriteDAO {
 
 	}
 
+	
 	public void close() {
 
 		try {
