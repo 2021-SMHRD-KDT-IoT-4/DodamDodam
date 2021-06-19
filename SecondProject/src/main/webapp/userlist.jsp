@@ -23,6 +23,7 @@
 	<div align="center">
 		<table border="1">
 			<tr>
+			
 				<td>이름</td>
 				<td>아이디</td>
 				<td>비밀번호</td>
