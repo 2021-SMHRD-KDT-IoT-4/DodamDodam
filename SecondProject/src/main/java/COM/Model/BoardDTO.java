@@ -17,7 +17,6 @@ public class BoardDTO {
 		this.notice_writer = notice_writer;
 		this.notice_content = notice_content;
 		this.notice_day = notice_day;
-		//jgjhgjhgj
 	}
 	
 	
