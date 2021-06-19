@@ -11,33 +11,39 @@ import javax.servlet.http.HttpSession;
 import COM.Model.UserDAO;
 import COM.Model.UserDTO;
 
-@WebServlet("/LoginService")
-public class LoginService extends HttpServlet {
+@WebServlet("/JoinService")
+public class JoinService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("EUC-KR");
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String tel = request.getParameter("tel");
 		
-		UserDTO dto = new UserDTO(id, pw);
+		UserDTO dto = new UserDTO(name, id, pw, tel);
+		
 		UserDAO dao = new UserDAO();
-		UserDTO info = dao.login(dto);
 		
-		if(info != null) {
-			System.out.println("로그인 성공!");
+		int cnt = dao.join(dto);
+		
+		
+		if(cnt > 0) {
+			System.out.println("회원가입 성공!");
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("login_info", info);
+			HttpSession session = request.getSession();	
+			session.setAttribute("id", id);
+			
+			response.sendRedirect("login.jsp");
 			
 		}else {
-			System.out.println("로그인 실패!");
-			
+			System.out.println("회원가입 실패!");
+			response.sendRedirect("main.jsp");
 		}
 		
-		response.sendRedirect("main.jsp");
 		
-	
+		
 	}
 
 }
