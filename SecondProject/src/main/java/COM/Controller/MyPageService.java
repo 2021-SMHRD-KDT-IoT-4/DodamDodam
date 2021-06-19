@@ -19,6 +19,7 @@ public class MyPageService extends HttpServlet {
 		
 		request.setCharacterEncoding("EUC-KR");
 		
+	
 		
 	
 		
