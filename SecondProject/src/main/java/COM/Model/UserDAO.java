@@ -9,6 +9,13 @@ import java.util.ArrayList;
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
 public class UserDAO {
 	UserDTO info = null;
 	
@@ -200,4 +207,30 @@ public class UserDAO {
 	}
 	
 
+	
+	public int modify_info(UserDTO dto) {
+		conn();
+
+		String sql = "update users set pw=?, tel=?, name=? where id =?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getPw()); 
+			psmt.setString(2, dto.getTel());
+			psmt.setString(3, dto.getName());
+			psmt.setString(4, dto.getId());
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			close();
+		}
+		return cnt;
+	}
+	
+	
 }

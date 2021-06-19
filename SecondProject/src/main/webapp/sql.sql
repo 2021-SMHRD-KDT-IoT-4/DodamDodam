@@ -3,6 +3,10 @@ select * from USERS;
 =======
 select * from users;
 <<<<<<< HEAD
+select * from FAQ;
+select * from NOTICE;
+=======
+<<<<<<< HEAD
 select * from CHILD;
 insert into CHILD values('효진이','10','여','무지개초등학교');
 
