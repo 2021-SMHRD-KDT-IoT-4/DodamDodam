@@ -11,9 +11,6 @@ public class UserDTO {
 	private String tel;
 
 
-	
-	
-	
 	public UserDTO(String name, String id, String pw, String tel) {
 	
 		this.name = name;
