@@ -6,7 +6,7 @@ public class BoardDTO {
 	private String notice_title;
 	private String notice_writer;
 	private String notice_content;
-	private String notice_day;
+	private String notice_day; 
 	
 	
 	public BoardDTO(int notice_seq, String notice_title, String notice_writer, String notice_content,
