@@ -66,6 +66,7 @@ public class NoticeWriteDAO {
 			psmt.setString(2, dto.getNotice_writer());
 			psmt.setString(3, dto.getNotice_content());
 
+			
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
