@@ -9,13 +9,7 @@ import java.util.ArrayList;
 
 
 
-<<<<<<< HEAD
-=======
 
-
-
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
 public class UserDAO {
 	UserDTO info = null;
 	
