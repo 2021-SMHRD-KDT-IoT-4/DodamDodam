@@ -110,7 +110,7 @@ public class NoticeWriteDAO {
 
 	public NoticeDTO showOne(int notice_seq) {
 		conn();
-		String sql = "select * from notice where noitce_seq = ?";
+		String sql = "select * from notice where notice_seq = ?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
