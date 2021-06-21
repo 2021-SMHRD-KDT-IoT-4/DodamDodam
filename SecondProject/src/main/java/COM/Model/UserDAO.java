@@ -224,7 +224,7 @@ public class UserDAO {
 	}
 	
 	
-	public ArrayList<UserDTO> getData(String idd) {
+	public UserDTO getData(String idd) {
 		 list = new ArrayList<UserDTO>();
 		conn();
 		
@@ -237,7 +237,7 @@ public class UserDAO {
 			
 			rs = psmt.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				
 				String name = rs.getString(1);
 				String id = rs.getString(2);
@@ -246,14 +246,14 @@ public class UserDAO {
 				
 				dto = new UserDTO(name, id, pw, tel);
 				
-				list.add(dto);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
-		return list;
+		return dto;
 	}
 	
 	

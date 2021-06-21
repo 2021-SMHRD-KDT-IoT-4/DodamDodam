@@ -88,12 +88,10 @@
 								<section>
 								
 								<% 
-									String id=request.getParameter("login_info");
-								UserDAO Udao = new UserDAO();
-								
-								ArrayList<UserDTO> Ulist = Udao.getData(id);
-								
+							
+									UserDTO info = (UserDTO)session.getAttribute("login_info");
 								%>
+								
 								<div>
 										<table border="1">
 											<tr>
@@ -102,18 +100,14 @@
 												<td>비밀번호</td>
 												<td>휴대폰번호</td>
 											</tr>
-											<%
-											for (int i = 0; i <Ulist.size(); i++){
-											%>
+											<%if(info!=null){ %>
 											<tr align="center">
-												<td><%=Ulist.get(i).getName()%></td>
-												<td><%=Ulist.get(i).getId()%></td>
-												<td><%=Ulist.get(i).getPw()%></td>
-												<td><%=Ulist.get(i).getTel()%></td>
+												<td><%=info.getName()%></td>
+												<td><%=info.getId()%></td>
+												<td><%=info.getPw()%></td>
+												<td><%=info.getTel()%></td>
 											</tr>
-											<%
-											}
-											%>										
+											<%} %>						
 										
 										</table>
 									</div>
