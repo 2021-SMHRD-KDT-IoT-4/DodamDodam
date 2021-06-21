@@ -42,6 +42,7 @@
 			<div id="wrapper">
 
 				<!-- Nav -->
+				<!-- Admin!!!!!!!!!!!!!! -->
 				<%if(info != null) {%>
 					<nav id="nav">
 						<% if(info.getId().equals("admin")){%>
