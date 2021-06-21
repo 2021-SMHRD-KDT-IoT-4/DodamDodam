@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -13,9 +15,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-	
 
-		
 		<!-- Wrapper-->
 			<div id="wrapper">
 
@@ -33,8 +33,7 @@
 						<!-- Me -->
 							<article id="home" class="panel intro">
 								<header>
-								<form action="#" method="post">
-							
+								<form action="LoginService" method="post">
 									<div>
 										<div class="row">
 											<div class="col-12">
@@ -44,10 +43,10 @@
 												<input type="text" name="PW" placeholder="PW" />
 											</div>
 											<div class="col-6 col-6-medium">
-												<input type="submit" value="  Î°úÍ∑∏Ïù∏  " />
+												<input type="submit" value="  ∑Œ±◊¿Œ  " />
 											</div>
 												<div class="col-6 col-6-medium">
-												<input type="button" value="ÌöåÏõêÍ∞ÄÏûÖ" onClick="window.location='#contact2'" />
+												<input type="button" value="»∏ø¯∞°¿‘" onClick="window.location='#contact2'" />
 										</div>
 									</div>
 								</form>
@@ -65,36 +64,52 @@
 						<!-- Work -->
 							<article id="work" class="panel">
 								<header>
-									<h2>My page</h2>
+									<h2>Work</h2>
 								</header>
-								
+								<p>
+									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
+									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+									luctus elit eget interdum.
+								</p>
 								<section>
 									<div class="row">
-											<div class="col-12">
-												<input type="text" name="id" placeholder="id" value ="<%=" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="pw" placeholder="pw" />
-											</div>
-											<div class="col-12 ">
-												<input type="text" name="pwÌôïÏù∏" placeholder="pwÌôïÏù∏" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="name" placeholder="name" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="tel" placeholder="tel" />
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Send Message" />
-											</div>
-											
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
+										</div>
 									</div>
-									
-									
-									
-									
-									
 								</section>
 							</article>
 
@@ -129,10 +144,10 @@
 
 
 
-						<!-- ÌöåÏõêÍ∞ÄÏûÖ -->
+						<!-- »∏ø¯∞°¿‘ -->
 							<article id="contact2" class="panel">
 								<header>
-									<h2>ÌöåÏõêÍ∞ÄÏûÖ</h2>
+									<h2>»∏ø¯∞°¿‘</h2>
 								</header>
 								<form action="JoinService" method="post">
 									<div>
@@ -144,20 +159,13 @@
 												<input type="text" name="pw" placeholder="PW" />
 											</div>
 											<div class="col-8">
-												<input type="text" name="name" placeholder="Ïù¥Î¶Ñ" />
+												<input type="text" name="name" placeholder="¿Ã∏ß" />
 											</div>
-<<<<<<< HEAD
-											<br>
-											</div>
-												<div class="col-6">
-												<input type="text" name="name" placeholder="Ï†ÑÌôîÎ≤àÌò∏" />
-=======
 												<div class="col-8">
-												<input type="text" name="tel" placeholder="Ìï∏ÎìúÌè∞" />
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
+												<input type="text" name="tel" placeholder="«⁄µÂ∆˘" />
 											</div>
 											<div class="col-12">
-												<input type="submit" value="ÌôïÏù∏" onClick="window.location='#'">
+												<input type="submit" value="»Æ¿Œ" />
 											</div>
 										</div>
 									</div>
