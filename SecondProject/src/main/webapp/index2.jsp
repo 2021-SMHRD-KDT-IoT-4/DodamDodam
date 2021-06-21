@@ -37,17 +37,18 @@
 									<div>
 										<div class="row">
 											<div class="col-12">
-												<input type="text" name="ID" placeholder="ID" />
+												<input type="text" name="id" placeholder="ID" />
 											</div>
 											<div class="col-12">
-												<input type="text" name="PW" placeholder="PW" />
+												<input type="text" name="pw" placeholder="PW" />
 											</div>
 											<div class="col-6 col-6-medium">
 												<input type="submit" value="  로그인  " />
 											</div>
+								
 												<div class="col-6 col-6-medium">
 												<input type="button" value="회원가입" onClick="window.location='#contact2'" />
-										</div>
+												</div>
 									</div>
 								</form>
 								</header>

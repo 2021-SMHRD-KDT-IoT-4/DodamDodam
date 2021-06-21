@@ -30,6 +30,7 @@ public class UserDTO {
 
 
 
+
 	public String getName() {
 		return name;
 	}

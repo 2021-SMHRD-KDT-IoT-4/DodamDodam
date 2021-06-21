@@ -19,3 +19,5 @@ select * from child;
 
 
 delete from users where users_id = 'oracle';
+
+commit;

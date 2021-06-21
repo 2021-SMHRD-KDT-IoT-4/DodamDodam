@@ -167,7 +167,7 @@ public class UserDAO {
 		
 		conn();
 		
-		String sql = "select * from users where id = ? and pw = ?";
+		String sql = "select * from users where users_id = ? and users_pw = ?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -205,7 +205,7 @@ public class UserDAO {
 	public int modify_info(UserDTO dto) {
 		conn();
 
-		String sql = "update users set pw=?, tel=?, name=? where id =?";
+		String sql = "update users set users_pw=?, users_tel=?, users_name=? where users_id =?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
