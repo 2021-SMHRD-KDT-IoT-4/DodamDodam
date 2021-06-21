@@ -22,7 +22,7 @@ public class FaqWriteDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String db_url = "jdbc:oracle:thin:@192.168.0.77:1521:xe";
+			String db_url = "jdbc:oracle:thin:@192.168.0.253:1521:xe";
 			String db_id = "secondProject";
 			String db_pw = "1234";
 
