@@ -17,8 +17,11 @@ public class LoginService extends HttpServlet {
 
 		request.setCharacterEncoding("EUC-KR");
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String id = request.getParameter("ID");
+		String pw = request.getParameter("PW");
+		
+		System.out.println(id);
+		System.out.println(pw);
 		
 		UserDTO dto = new UserDTO(id, pw);
 		UserDAO dao = new UserDAO();
@@ -31,11 +34,13 @@ public class LoginService extends HttpServlet {
 			session.setAttribute("login_info", info);
 			
 			response.sendRedirect("main.jsp");
+			response.sendRedirect("index2.jsp#work");
 			
 		}else {
 			System.out.println("로그인 실패!");
 			response.sendRedirect("index2.jsp#contact2");
 			
+			response.sendRedirect("index2.jsp#");
 		}
 		
 		

@@ -83,7 +83,7 @@ public class FaqWriteDAO {
 		
 	}
 	
-	public ArrayList<FaqDTO> showNotice() {
+	public ArrayList<FaqDTO> showFaq() {
 		ArrayList<FaqDTO> list = new ArrayList<FaqDTO>();
 		conn();
 		

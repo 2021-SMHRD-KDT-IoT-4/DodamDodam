@@ -10,7 +10,6 @@ public class FaqDTO {
 	
 	
 	public FaqDTO(int faq_seq, String faq_title, String faq_writer, String faq_content, String faq_answer) {
-		super();
 		this.faq_seq = faq_seq;
 		this.faq_title = faq_title;
 		this.faq_writer = faq_writer;
