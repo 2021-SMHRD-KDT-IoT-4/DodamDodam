@@ -30,7 +30,7 @@
 	<body class="is-preload">
 	
 	<%
-		//UserDTO info = (UserDTO)session.getAttribute("login_info");
+		UserDTO info = (UserDTO)session.getAttribute("login_info");
 	%>
 
 
@@ -40,12 +40,20 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<a href="#admin_Userinfo" class="icon solid fa-home"><span>adminUserinfo</span></a>
 						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
 						<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
 					</nav>
 
-				<!-- Main -->
+		
+		<%
+		if (info.getId().equals("admin")) {
+		%>
+		<a href="select.jsp">회원정보관리</a>
+		<%} %>
+		
+		<!-- Main -->
 					<div id="main">
 
 						<!-- Me -->
@@ -79,6 +87,45 @@
 
 									
 							</article>
+							
+							<!-- admin_Userinfo -->
+							<article id="admin_Userinfo" class="panel">
+								<header>
+									<h2>Admin_Userinfo</h2>
+								</header>
+								
+								<section>
+								
+								<% 
+							
+									UserDAO Udao = new UserDAO();
+									ArrayList<UserDTO> Ulist = Udao.All_info(); 
+								%>
+								
+								<div>
+										<table border="1">
+											<tr>
+												<td>이름</td>
+												<td>아이디</td>
+												<td>비밀번호</td>
+												<td>휴대폰번호</td>
+											</tr>
+											<%
+											for (int i = 0; i <Ulist.size(); i++){
+											%>
+											<tr align="center">
+												<td><%=Ulist.get(i).getName()%></td>
+												<td><%=Ulist.get(i).getId()%></td>
+												<td><%=Ulist.get(i).getPw()%></td>
+												<td><%=Ulist.get(i).getTel()%></td>
+											</tr>
+											<%
+											}
+											%>										
+										</table>
+								</div>
+								</section>
+							</article>
 
 						<!-- Work -->
 							<article id="work" class="panel">
@@ -90,7 +137,7 @@
 								
 								<% 
 							
-									UserDTO info = (UserDTO)session.getAttribute("login_info");
+									info = (UserDTO)session.getAttribute("login_info");
 								%>
 								
 								<div>
@@ -114,6 +161,7 @@
 										
 										</table>
 								</div>
+								
 								<header>
 									<h2>Kids page</h2>
 								</header>
