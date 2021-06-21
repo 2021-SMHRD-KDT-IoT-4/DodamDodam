@@ -88,9 +88,10 @@
 								<section>
 								
 								<% 
-									
+									String id=request.getParameter("login_info");
 								UserDAO Udao = new UserDAO();
-								ArrayList<UserDTO> Ulist = Udao.getData();
+								
+								ArrayList<UserDTO> Ulist = Udao.getData(id);
 								
 								%>
 								<div>
