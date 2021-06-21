@@ -31,9 +31,6 @@
 	
 	<%
 		UserDTO info = (UserDTO)session.getAttribute("login_info");
-			
-		
-			
 		
 	%>
 
@@ -56,13 +53,10 @@
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
 						<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
 						<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
-						<a href="#contact4" class="icon brands fa-twitter"><span>admin</span></a>
 						<% }%>
 					</nav>
 					<%} %>
 				
-
-		
 		
 		
 		<!-- Main -->
@@ -302,19 +296,7 @@
 							
 							
 							
-							<!-- 包府磊たた -->
-							<article id="contact4" class="panel">
-								<header>
-									<h2>包府磊</h2>
-								</header>
-								<form action="#" method="post">
-									<div>
-										<div class="row">
-											<a href="select.jsp">雀盔沥焊包府</a>
-										</div>
-									</div>
-								</form>
-							</article>
+							
 							
 							
 					</div>
