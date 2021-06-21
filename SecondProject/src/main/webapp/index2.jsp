@@ -96,7 +96,6 @@
 								<div>
 										<table border="1">
 											<tr>
-											
 												<td>이름</td>
 												<td>아이디</td>
 												<td>비밀번호</td>
@@ -117,19 +116,7 @@
 										
 										</table>
 									</div>
-								<div>
 								
-								<%
-									for (int i = 0; i <Ulist.size(); i++){
-								%>
-										
-									<span><%=Ulist.get(i).getId()%></span>
-									<span><%=Ulist.get(i).getPw()%></span>
-									<span><%=Ulist.get(i).getTel()%></span>
-									<% }%>
-										
-										
-									</div>
 								</section>
 							</article>
 
