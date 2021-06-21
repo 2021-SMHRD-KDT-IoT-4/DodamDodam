@@ -12,8 +12,7 @@ import java.util.ArrayList;
 
 public class UserDAO {
 	UserDTO info = null;
-	
-
+	UserDTO dto = null;
 	ArrayList<UserDTO> list = null;
 	ArrayList<UserDTO> c_list = null;
 
@@ -200,8 +199,6 @@ public class UserDAO {
 		
 	}
 	
-
-	
 	public int modify_info(UserDTO dto) {
 		conn();
 
@@ -225,6 +222,37 @@ public class UserDAO {
 		}
 		return cnt;
 	}
+	
+	
+	public UserDTO getData(String id) {
+		
+		conn();
+		
+		try {
+			String sql = "select * from USERS where id = ?";
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("tel"));
+				dto.setTel(rs.getString("name"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			close();
+		}
+		return dto;
+		
+	}
+	
+	
 	
 	
 }
