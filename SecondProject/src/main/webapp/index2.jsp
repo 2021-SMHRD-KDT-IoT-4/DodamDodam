@@ -30,7 +30,11 @@
 	<body class="is-preload">
 	
 	<%
-		//UserDTO info = (UserDTO)session.getAttribute("login_info");
+		UserDTO info = (UserDTO)session.getAttribute("login_info");
+			
+		
+			
+		
 	%>
 
 
@@ -38,15 +42,29 @@
 			<div id="wrapper">
 
 				<!-- Nav -->
+				<%if(info != null) {%>
 					<nav id="nav">
+						<% if(info.getId().equals("admin")){%>
+						
+						<a href="#admin_Userinfo" class="icon solid fa-home"><span>adminUserinfo</span></a>
+						<%}else{ %>
+								
+				
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
 						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
 						<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
 						<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
+						<a href="#contact4" class="icon brands fa-twitter"><span>admin</span></a>
+						<% }%>
 					</nav>
+					<%} %>
+				
 
-				<!-- Main -->
+		
+		
+		
+		<!-- Main -->
 					<div id="main">
 
 						<!-- Me -->
@@ -80,7 +98,43 @@
 
 									
 							</article>
-
+							
+							
+							<%
+								UserDAO Udao = new UserDAO();
+								ArrayList<UserDTO> Ulist = Udao.All_info();
+							%>
+							
+							<!-- admin_Userinfo -->
+							<article id="admin_Userinfo" class="panel">
+							
+								<header>
+									<h2>Admin_Userinfo</h2>
+								</header>
+								<nav id="Update">	
+						<table>
+							<caption><h2>회원관리페이지</h2></caption>
+							
+							
+							<%for(int i = 0; i<Ulist.size(); i++) { %>
+								<tr>
+									<td><%=Ulist.get(i).getName() %></td>
+									<td><%=Ulist.get(i).getId() %></td>
+									<td><%=Ulist.get(i).getPw()%></td>	
+									<td><%=Ulist.get(i).getTel()%></td>							
+								</tr>
+							<%} %>
+							
+							
+							<!-- 2.모든 회원의 이메일(email),전화번호(tel),주소(address)를 출력하시오. -->
+						</table>
+					</nav>		
+					<a href="index2.jsp#home" class="button next scrolly">되돌아가기</a>	
+								
+							</article>
+	
+						
+							
 						<!-- Work -->
 							<article id="work" class="panel">
 								<header>
@@ -91,7 +145,7 @@
 								
 								<% 
 							
-									UserDTO info = (UserDTO)session.getAttribute("login_info");
+									info = (UserDTO)session.getAttribute("login_info");
 								%>
 								
 								<div>
@@ -115,6 +169,7 @@
 										
 										</table>
 								</div>
+								
 								<header>
 									<h2>Kids page</h2>
 								</header>
@@ -242,6 +297,24 @@
 									</div>
 								</form>
 							</article>
+							
+							
+							
+							
+							<!-- 관리자ㅏㅏ -->
+							<article id="contact4" class="panel">
+								<header>
+									<h2>관리자</h2>
+								</header>
+								<form action="#" method="post">
+									<div>
+										<div class="row">
+											<a href="select.jsp">회원정보관리</a>
+										</div>
+									</div>
+								</form>
+							</article>
+							
 							
 					</div>
 

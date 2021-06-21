@@ -10,6 +10,8 @@ select * from NOTICE;
 select * from CHILD;
 insert into CHILD values('효진이','10','여','무지개초등학교');
 
+insert into users values('관리자', 'admin', '0000', '062');
+
 
 
 =======
