@@ -224,8 +224,8 @@ public class UserDAO {
 	}
 	
 	
-	public ArrayList<UserDTO> getData() {
-		ArrayList<UserDTO> list = new ArrayList<UserDTO>();
+	public ArrayList<UserDTO> getData(String idd) {
+		 list = new ArrayList<UserDTO>();
 		conn();
 		
 		String sql = "select * from users where users_id = ?";
@@ -233,7 +233,7 @@ public class UserDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setString(1, dto.getId());
+			psmt.setString(1, idd);
 			
 			rs = psmt.executeQuery();
 			
