@@ -43,6 +43,7 @@
 						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
 						<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
+						<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
 					</nav>
 
 				<!-- Main -->
@@ -214,7 +215,7 @@
 							</article>
 							
 						<!-- 아이등록 -->
-							<article id="contact2" class="panel">
+							<article id="contact3" class="panel">
 								<header>
 									<h2>아이등록</h2>
 								</header>
@@ -222,16 +223,17 @@
 									<div>
 										<div class="row">
 											<div class="col-8">
-												<input type="text" name="id" placeholder="ID" />
+												<input type="text" name="name" placeholder="아이이름" />
 											</div>
 											<div class="col-8">
-												<input type="text" name="pw" placeholder="PW" />
+												여자<input type="radio" name="gender" value="female" >
+												남자<input type="radio" name="gender" value="male" >
 											</div>
 											<div class="col-8">
-												<input type="text" name="name" placeholder="이름" />
+												<input type="text" name="age" placeholder="나이" />
 											</div>
 												<div class="col-8">
-												<input type="text" name="tel" placeholder="핸드폰" />
+												<input type="text" name="school" placeholder="학교" />
 											</div>
 											<div class="col-12">
 												<input type="submit" value="확인" onClick="window.location='#'" />
