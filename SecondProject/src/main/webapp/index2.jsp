@@ -1,3 +1,8 @@
+<%@page import="COM.Model.FaqDTO"%>
+<%@page import="COM.Model.FaqWriteDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="COM.Model.NoticeWriteDAO"%>
+<%@page import="COM.Model.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -119,24 +124,35 @@
 									<h2>FAQ</h2>
 								</header>
 								<form action="#" method="post">
+									<%
+									FaqWriteDAO dao = new FaqWriteDAO();
+									ArrayList<FaqDTO> list = dao.showFaq();
+									%>
 									<div>
-										<div class="row">
-											<div class="col-6 col-12-medium">
-												<input type="text" name="name" placeholder="Name" />
-											</div>
-											<div class="col-6 col-12-medium">
-												<input type="text" name="email" placeholder="Email" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="subject" placeholder="Subject" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Message" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Send Message" />
-											</div>
-										</div>
+										<table border="1">
+											<tr>
+											
+												<td>번호</td>
+												<td>제목</td>
+												<td>글쓴이</td>
+												<td>내용</td>
+												<td>답변</td>
+											</tr>
+											<%
+											for (int i = 0; i <list.size(); i++){
+											%>
+											<tr align="center">
+												<td><%=list.get(i).getFaq_seq()%></td>
+												<td><%=list.get(i).getFaq_title()%></td>
+												<td><%=list.get(i).getFaq_writer()%></td>
+												<td><%=list.get(i).getFaq_content()%></td>
+												<td><%=list.get(i).getFaq_answer()%></td>
+											</tr>
+											<%
+											}
+											%>										
+										
+										</table>
 									</div>
 								</form>
 							</article>
