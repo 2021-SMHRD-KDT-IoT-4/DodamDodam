@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -31,7 +33,7 @@
 						<!-- Me -->
 							<article id="home" class="panel intro">
 								<header>
-								<form action="#" method="post">
+								<form action="LoginService" method="post">
 									<div>
 										<div class="row">
 											<div class="col-12">
@@ -41,10 +43,10 @@
 												<input type="text" name="PW" placeholder="PW" />
 											</div>
 											<div class="col-6 col-6-medium">
-												<input type="submit" value="  Î°úÍ∑∏Ïù∏  " />
+												<input type="submit" value="  ∑Œ±◊¿Œ  " />
 											</div>
 												<div class="col-6 col-6-medium">
-												<input type="button" value="ÌöåÏõêÍ∞ÄÏûÖ" onClick="window.location='#contact2'" />
+												<input type="button" value="»∏ø¯∞°¿‘" onClick="window.location='#contact2'" />
 										</div>
 									</div>
 								</form>
@@ -142,10 +144,10 @@
 
 
 
-						<!-- ÌöåÏõêÍ∞ÄÏûÖ -->
+						<!-- »∏ø¯∞°¿‘ -->
 							<article id="contact2" class="panel">
 								<header>
-									<h2>ÌöåÏõêÍ∞ÄÏûÖ</h2>
+									<h2>»∏ø¯∞°¿‘</h2>
 								</header>
 								<form action="JoinService" method="post">
 									<div>
@@ -157,13 +159,13 @@
 												<input type="text" name="pw" placeholder="PW" />
 											</div>
 											<div class="col-8">
-												<input type="text" name="name" placeholder="Ïù¥Î¶Ñ" />
+												<input type="text" name="name" placeholder="¿Ã∏ß" />
 											</div>
 												<div class="col-8">
-												<input type="text" name="tel" placeholder="Ìï∏ÎìúÌè∞" />
+												<input type="text" name="tel" placeholder="«⁄µÂ∆˘" />
 											</div>
 											<div class="col-12">
-												<input type="submit" value="ÌôïÏù∏" />
+												<input type="submit" value="»Æ¿Œ" />
 											</div>
 										</div>
 									</div>
