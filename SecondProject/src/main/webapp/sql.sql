@@ -16,3 +16,6 @@ insert into CHILD values('효진이','10','여','무지개초등학교');
 select * from child;
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
+
+
+delete from users where users_id = 'oracle';

@@ -1,4 +1,12 @@
+
 <%@page import="COM.Model.UserDAO"%>
+
+<%@page import="COM.Model.FaqDTO"%>
+<%@page import="COM.Model.FaqWriteDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="COM.Model.NoticeWriteDAO"%>
+<%@page import="COM.Model.NoticeDTO"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@page import = "COM.Model.UserDTO"%>  
@@ -14,7 +22,7 @@
 <html>
 	<head>
 		<title>Astral by HTML5 UP</title>
-		<meta charset="utf-8" />
+		<meta charset="EUC-KR" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -78,25 +86,49 @@
 								</header>
 								
 								<section>
-									<div class="row">
-										<div class="col-12">
-												<input type="text" name="id" placeholder="id" value = ""/>
-										</div>
-										<div class="col-12">
-												<input type="text" name="pw" placeholder="pw" />
-											</div>
-											<div class="col-12 ">
-												<input type="text" name="pw확인" placeholder="pw확인" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="name" placeholder="name" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="tel" placeholder="tel" />
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Send Message" />
-											</div>
+								
+								<% 
+									
+								UserDAO Udao = new UserDAO();
+								ArrayList<UserDTO> Ulist = Udao.getData();
+								
+								%>
+								<div>
+										<table border="1">
+											<tr>
+											
+												<td>이름</td>
+												<td>아이디</td>
+												<td>비밀번호</td>
+												<td>휴대폰번호</td>
+											</tr>
+											<%
+											for (int i = 0; i <Ulist.size(); i++){
+											%>
+											<tr align="center">
+												<td><%=Ulist.get(i).getName()%></td>
+												<td><%=Ulist.get(i).getId()%></td>
+												<td><%=Ulist.get(i).getPw()%></td>
+												<td><%=Ulist.get(i).getTel()%></td>
+											</tr>
+											<%
+											}
+											%>										
+										
+										</table>
+									</div>
+								<div>
+								
+								<%
+									for (int i = 0; i <Ulist.size(); i++){
+								%>
+										
+									<span><%=Ulist.get(i).getId()%></span>
+									<span><%=Ulist.get(i).getPw()%></span>
+									<span><%=Ulist.get(i).getTel()%></span>
+									<% }%>
+										
+										
 									</div>
 								</section>
 							</article>
@@ -107,24 +139,35 @@
 									<h2>FAQ</h2>
 								</header>
 								<form action="#" method="post">
+									<%
+									FaqWriteDAO dao = new FaqWriteDAO();
+									ArrayList<FaqDTO> list = dao.showFaq();
+									%>
 									<div>
-										<div class="row">
-											<div class="col-6 col-12-medium">
-												<input type="text" name="name" placeholder="Name" />
-											</div>
-											<div class="col-6 col-12-medium">
-												<input type="text" name="email" placeholder="Email" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="subject" placeholder="Subject" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Message" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Send Message" />
-											</div>
-										</div>
+										<table border="1">
+											<tr>
+											
+												<td>번호</td>
+												<td>제목</td>
+												<td>글쓴이</td>
+												<td>내용</td>
+												<td>답변</td>
+											</tr>
+											<%
+											for (int i = 0; i <list.size(); i++){
+											%>
+											<tr align="center">
+												<td><%=list.get(i).getFaq_seq()%></td>
+												<td><%=list.get(i).getFaq_title()%></td>
+												<td><%=list.get(i).getFaq_writer()%></td>
+												<td><%=list.get(i).getFaq_content()%></td>
+												<td><%=list.get(i).getFaq_answer()%></td>
+											</tr>
+											<%
+											}
+											%>										
+										
+										</table>
 									</div>
 								</form>
 							</article>
@@ -153,7 +196,7 @@
 												<input type="text" name="tel" placeholder="핸드폰" />
 											</div>
 											<div class="col-12">
-												<input type="submit" value="확인" />
+												<input type="submit" value="확인" onClick="window.location='#'" />
 											</div>
 										</div>
 									</div>

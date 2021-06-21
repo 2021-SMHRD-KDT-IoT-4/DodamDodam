@@ -166,7 +166,7 @@ public class UserDAO {
 		
 		conn();
 		
-		String sql = "select * from users where id = ? and pw = ?";
+		String sql = "select * from users where users_id = ? and users_pw = ?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -202,7 +202,7 @@ public class UserDAO {
 	public int modify_info(UserDTO dto) {
 		conn();
 
-		String sql = "update users set pw=?, tel=?, name=? where id =?";
+		String sql = "update users set users_pw=?, users_tel=?, users_name=? where users_id =?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -224,32 +224,36 @@ public class UserDAO {
 	}
 	
 	
-	public UserDTO getData(String id) {
-		
+	public ArrayList<UserDTO> getData() {
+		ArrayList<UserDTO> list = new ArrayList<UserDTO>();
 		conn();
 		
+		String sql = "select * from users where users_id = ?";
+		
 		try {
-			String sql = "select * from USERS where id = ?";
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setString(1, id);
+			psmt.setString(1, dto.getId());
+			
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
-				dto.setId(rs.getString("id"));
-				dto.setPw(rs.getString("pw"));
-				dto.setName(rs.getString("tel"));
-				dto.setTel(rs.getString("name"));
+			while(rs.next()) {
+				
+				String name = rs.getString(1);
+				String id = rs.getString(2);
+				String pw = rs.getString(3);
+				String tel = rs.getString(4);
+				
+				dto = new UserDTO(name, id, pw, tel);
+				
+				list.add(dto);
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-
+		}finally {
 			close();
 		}
-		return dto;
-		
+		return list;
 	}
 	
 	

@@ -11,39 +11,37 @@ import javax.servlet.http.HttpSession;
 import COM.Model.UserDAO;
 import COM.Model.UserDTO;
 
-@WebServlet("/LoginService")
-public class LoginService extends HttpServlet {
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+@WebServlet("/UserInfo")
+public class UserInfoService extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("EUC-KR");
 		
-		String id = request.getParameter("ID");
-		String pw = request.getParameter("PW");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String tel = request.getParameter("tel");
 		
-		System.out.println(id);
-		System.out.println(pw);
-		
-		UserDTO dto = new UserDTO(id, pw);
+		UserDTO dto = new UserDTO(name, id, pw, tel);
 		UserDAO dao = new UserDAO();
 		UserDTO info = dao.login(dto);
 		
 		if(info != null) {
-			System.out.println("로그인 성공!");
+			System.out.println("회원 목록 성공!");
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("login_info", info);
 			
-			response.sendRedirect("index2.jsp#work");
-			
 		}else {
-			System.out.println("로그인 실패!");
+			System.out.println("회원 목록 실패!");
 			
-			response.sendRedirect("index2.jsp#");
 		}
 		
 		
-		
-	
 	}
 
 }
