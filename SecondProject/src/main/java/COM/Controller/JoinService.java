@@ -35,11 +35,11 @@ public class JoinService extends HttpServlet {
 			HttpSession session = request.getSession();	
 			session.setAttribute("id", id);
 			
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("index2.jsp");
 			
 		}else {
 			System.out.println("회원가입 실패!");
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("index2.jsp");
 		}
 		
 		
