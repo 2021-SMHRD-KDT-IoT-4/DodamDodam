@@ -165,7 +165,7 @@
 												<input type="text" name="tel" placeholder="핸드폰" />
 											</div>
 											<div class="col-12">
-												<input type="submit" value="확인" />
+												<input type="submit" value="확인" onClick="window.location='#'" />
 											</div>
 										</div>
 									</div>
