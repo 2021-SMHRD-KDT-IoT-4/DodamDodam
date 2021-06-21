@@ -107,11 +107,38 @@
 												<td><%=info.getId()%></td>
 												<td><%=info.getPw()%></td>
 												<td><%=info.getTel()%></td>
+												
 											</tr>
-											<%} %>						
+											<%} %>	
+											<hr>					
 										
 										</table>
-									</div>
+								</div>
+								<header>
+									<h2>Kids page</h2>
+								</header>
+								
+								
+								<div>
+										<table border="1">
+											<tr>
+												<td>이름</td>
+												<td>아이디</td>
+												<td>비밀번호</td>
+												<td>휴대폰번호</td>
+											</tr>
+											<%if(info!=null){ %>
+											<tr align="center">
+												<td><%=info.getName()%></td>
+												<td><%=info.getId()%></td>
+												<td><%=info.getPw()%></td>
+												<td><%=info.getTel()%></td>
+											</tr>
+											<%} %>	
+											<hr>					
+										
+										</table>
+								</div>
 								
 								</section>
 							</article>
@@ -185,6 +212,35 @@
 									</div>
 								</form>
 							</article>
+							
+						<!-- 아이등록 -->
+							<article id="contact2" class="panel">
+								<header>
+									<h2>아이등록</h2>
+								</header>
+								<form action="JoinService" method="post">
+									<div>
+										<div class="row">
+											<div class="col-8">
+												<input type="text" name="id" placeholder="ID" />
+											</div>
+											<div class="col-8">
+												<input type="text" name="pw" placeholder="PW" />
+											</div>
+											<div class="col-8">
+												<input type="text" name="name" placeholder="이름" />
+											</div>
+												<div class="col-8">
+												<input type="text" name="tel" placeholder="핸드폰" />
+											</div>
+											<div class="col-12">
+												<input type="submit" value="확인" onClick="window.location='#'" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+							
 					</div>
 
 				<!-- Footer -->

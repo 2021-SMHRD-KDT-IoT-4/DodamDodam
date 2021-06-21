@@ -17,8 +17,8 @@ public class LoginService extends HttpServlet {
 
 		request.setCharacterEncoding("EUC-KR");
 		
-		String id = request.getParameter("ID");
-		String pw = request.getParameter("PW");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
 		
 		System.out.println(id);
 		System.out.println(pw);
@@ -33,14 +33,14 @@ public class LoginService extends HttpServlet {
 			HttpSession session = request.getSession(); //session 선언
 			session.setAttribute("login_info", info);
 			
-			response.sendRedirect("main.jsp");
+			//response.sendRedirect("main.jsp");
 			response.sendRedirect("index2.jsp#work");
 			
 		}else {
 			System.out.println("로그인 실패!");
 			response.sendRedirect("index2.jsp#contact2");
 			
-			response.sendRedirect("index2.jsp#");
+			//response.sendRedirect("index2.jsp#");
 		}
 		
 		
