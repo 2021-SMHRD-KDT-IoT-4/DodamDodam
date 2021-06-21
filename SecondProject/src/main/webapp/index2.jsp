@@ -1,10 +1,18 @@
+
+<%@page import="COM.Model.UserDAO"%>
+
 <%@page import="COM.Model.FaqDTO"%>
 <%@page import="COM.Model.FaqWriteDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="COM.Model.NoticeWriteDAO"%>
 <%@page import="COM.Model.NoticeDTO"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@page import = "COM.Model.UserDTO"%>  
+<%@page import = "java.util.*" %>  
+
+
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -20,6 +28,11 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+	
+	<%
+		
+	%>
+
 
 		<!-- Wrapper-->
 			<div id="wrapper">
@@ -69,51 +82,53 @@
 						<!-- Work -->
 							<article id="work" class="panel">
 								<header>
-									<h2>Work</h2>
+									<h2>My page</h2>
 								</header>
-								<p>
-									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-									luctus elit eget interdum.
-								</p>
+								
 								<section>
-									<div class="row">
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-										</div>
+								
+								<% 
+									
+								UserDAO Udao = new UserDAO();
+								ArrayList<UserDTO> Ulist = Udao.getData();
+								
+								%>
+								<div>
+										<table border="1">
+											<tr>
+											
+												<td>이름</td>
+												<td>아이디</td>
+												<td>비밀번호</td>
+												<td>휴대폰번호</td>
+											</tr>
+											<%
+											for (int i = 0; i <Ulist.size(); i++){
+											%>
+											<tr align="center">
+												<td><%=Ulist.get(i).getName()%></td>
+												<td><%=Ulist.get(i).getId()%></td>
+												<td><%=Ulist.get(i).getPw()%></td>
+												<td><%=Ulist.get(i).getTel()%></td>
+											</tr>
+											<%
+											}
+											%>										
+										
+										</table>
+									</div>
+								<div>
+								
+								<%
+									for (int i = 0; i <Ulist.size(); i++){
+								%>
+										
+									<span><%=Ulist.get(i).getId()%></span>
+									<span><%=Ulist.get(i).getPw()%></span>
+									<span><%=Ulist.get(i).getTel()%></span>
+									<% }%>
+										
+										
 									</div>
 								</section>
 							</article>
