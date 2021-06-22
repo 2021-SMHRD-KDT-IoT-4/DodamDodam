@@ -178,8 +178,9 @@ html, body {
 
 .article-detail>table tr.article-title>td {
 	height: 40px;
-	font-weight: bold;
+	width: 100px; font-weight : bold;
 	font-size: 1.2rem;
+	font-weight: bold;
 }
 
 .article-detail>table td:last-child {
@@ -260,36 +261,43 @@ html, body {
 		<body>
 
 
+
 			<%
-			int cnt = Integer.parseInt(request.getParameter("dto"));
 			NoticeWriteDAO Noticedao = new NoticeWriteDAO();
-			NoticeDTO dto = Noticedao.upload(cnt);
+			
 			%>
 			<h1 class="con">게시글 상세</h1>
 			<section class="article-detail table-common con row">
 				<div class="article-writer cell">
 					<div class="writer-icon">이미지</div>
-					<span><%=dto.getNotice_writer()%></span>
+					<span></span>
 				</div>
-				<table class="cell" border="1">
-					<colgroup>
-						<col width="100px">
-					</colgroup>
-					<tbody>
-						<tr class="article-title">
-							<th>[<%=dto.getNotice_seq()%>]제목 :
-							</th>
-							<td colspan="3"><%=dto.getNotice_title()%></td>
-						</tr>
-						<tr class="article-info">
-							<th>날짜 :</th>
-							<td><%=dto.getNotice_day()%></td>
-						</tr>
-						<tr class="article-body">
-							<td colspan="4"><%=dto.getNotice_content()%></td>
-						</tr>
-					</tbody>
-				</table>
+				<form action="InsertNotice">
+					<table class="cell" border="1">
+						<colgroup>
+							<col width="100px">
+						</colgroup>
+						<tbody>
+							<tr class="article-title">
+								<th>제목 :</th>
+								<td colspan="3" width="200"><input type="text" name="title"></td>
+							</tr>
+							<tr class="article-title">
+								<th>작성자 :</th>
+								<td colspan="3" width="200"><input type="text" name="writer"></td>
+							</tr>
+							<tr class="article-info">
+								<th>내용 :</th>
+								<td colspan="3"><textarea name="content"></textarea></td>
+							</tr>
+							<tr class="article-body">
+								<td colspan="4"></td>
+							</tr>
+							<input type="submit" value="작성하기">
+						</tbody>
+					</table>
+				</form>
+
 			</section>
 		</body>
 </html>
