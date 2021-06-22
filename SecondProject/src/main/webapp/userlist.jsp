@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%
-		UserDAO dao = new UserDAO();
+	UserDAO dao = new UserDAO();
 	ArrayList<UserDTO> list = dao.All_info();
 
 	childDAO c_dao = new childDAO();
