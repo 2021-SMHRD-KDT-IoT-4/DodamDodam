@@ -14,10 +14,12 @@ import COM.Model.NoticeWriteDAO;
 
 @WebServlet("/NoticeService")
 public class NoticeService extends HttpServlet {
-
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+
+		
 		request.setCharacterEncoding("EUC-KR");
 		String title = request.getParameter("Notice_title");
 		String writer = request.getParameter("notice_writer");

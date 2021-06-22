@@ -303,59 +303,60 @@
 								</form>
 							</article>
 
+						<%
+		NoticeWriteDAO Noticedao = new NoticeWriteDAO();
+		ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
+		System.out.print(Nlist.size());
+		%>
+
+		<article id="board" class="panel">
+			<header>
+				<h2>Notice</h2>
+				<a href="insertBoard.jsp">글 작성</a>
+			</header>
+			<form action="#" method="post">
+
+
+
+				<section class="article-list table-common con">
+					<table border="1">
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>제목</th>
+								<th>글쓴이</th>
+								<th>내용</th>
+								<th>날짜</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+							for (int i = 0; i < Nlist.size(); i++) {
+							%>
+							<tr>
+								<td><%=Nlist.get(i).getNotice_seq()%></td>
+								<td><a
+									href="detailsBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">
+										<%=Nlist.get(i).getNotice_title()%></a></td>
+								<td><%=Nlist.get(i).getNotice_writer()%></td>
+								<td><%=Nlist.get(i).getNotice_content()%></td>
+								<td><%=Nlist.get(i).getNotice_day()%></td>
+
+							</tr>
+							<%
+							}
+							%>
+						</tbody>
+					</table>
+				</section>
+			</form>
+		</article>
 						</div>
 
 
-					<%
-					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
-					ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
-					System.out.print(Nlist.size());
-					%>
+	
 
-			<article id="board" class="panel">
-				<header>
-					<h2>Notice</h2>
-					<a href="insertBoard.jsp">글 작성</a>
-				</header>
-				<form action="#" method="post">
-					
-
-
-					<section class="article-list table-common con">
-						<table border="1">
-							<thead>
-								<tr>
-									<th>번호</th>
-									<th>제목</th>
-									<th>글쓴이</th>
-									<th>내용</th>
-									<th>날짜</th>
-								</tr>
-							</thead>
-							<tbody>
-								<%
-								for (int i = 0; i < Nlist.size(); i++) {
-								%>
-								<tr>
-									<td><%=Nlist.get(i).getNotice_seq()%></td>
-									<td><a
-									href="detailsBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">
-									<%=Nlist.get(i).getNotice_title()%></a></td>
-									<td><%=Nlist.get(i).getNotice_writer()%></td>
-									<td><%=Nlist.get(i).getNotice_content()%></td>
-									<td><%=Nlist.get(i).getNotice_day()%></td>
-									
-								</tr>
-								<%
-								}
-								%>
-							</tbody>
-						</table>
-					</section>
-				</form>
-			</article>
-
-			<!-- Footer -->
+		<!-- Footer -->
 
 					<div id="footer">
 						<ul class="copyright">
