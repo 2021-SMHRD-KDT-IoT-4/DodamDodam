@@ -112,7 +112,30 @@ public class FaqWriteDAO {
 		return list;
 	}
 	
-	
+	public FaqDTO showOne(int faq_num) {
+	      conn();
+	      
+	      String sql = "select * from faq where faq_seq = ?";
+	      try {
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setInt(1, faq_num);
+	         rs = psmt.executeQuery();
+	         
+	         if(rs.next()) {
+	            int faq_seq = rs.getInt(1);
+	            String faq_title = rs.getString(2);
+	            String faq_writer = rs.getString(3);
+	            String faq_content = rs.getString(4);
+	            String faq_answer = rs.getString(5);
+	            dto = new FaqDTO(faq_seq, faq_title, faq_writer, faq_content, faq_answer);
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	      }
+	      return dto;
+	   }
 
 	
 	
