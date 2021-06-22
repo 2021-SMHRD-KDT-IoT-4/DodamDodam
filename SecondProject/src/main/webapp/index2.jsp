@@ -35,6 +35,7 @@
 	%>
 
 
+
 		<!-- Wrapper-->
 			<div id="wrapper">
 
@@ -222,7 +223,7 @@
 											%>
 											<tr align="center">
 												<td><%=list.get(i).getFaq_seq()%></td>
-												<td><%=list.get(i).getFaq_title()%></td>
+												<td><a href="viewBoard.jsp?faq_num=2"><%=list.get(i).getFaq_title()%></a></td>
 												<td><%=list.get(i).getFaq_writer()%></td>
 												<td><%=list.get(i).getFaq_content()%></td>
 												<td><%=list.get(i).getFaq_answer()%></td>
@@ -236,10 +237,10 @@
 								</form>
 							</article>
 
+			
 
 
-
-						<!-- 회원가입 -->
+			<!-- 회원가입 -->
 							<article id="contact2" class="panel">
 								<header>
 									<h2>회원가입</h2>
