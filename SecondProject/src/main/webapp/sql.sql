@@ -12,6 +12,10 @@ insert into CHILD values('효진이','10','여','무지개초등학교');
 
 insert into users values('관리자', 'admin', '0000', '062');
 
+insert into child values('my', '선풍기', 'female', '210506', '쿠팡초등학교');
+
+commit;
+
 
 
 =======

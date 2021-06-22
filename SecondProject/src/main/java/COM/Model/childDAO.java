@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
+
 public class childDAO {
 	childDTO info = null;
 	ArrayList<childDTO> c_list = null;
@@ -91,15 +93,16 @@ public class childDAO {
 		
 		conn();
 		
-		String sql = "insert into child values(?, ?, ?, ?)";
+		String sql = "insert into child values(?, ?, ?, ?, ?)";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setString(1, dto.getC_name());
-			psmt.setString(2, dto.getC_gender());
-			psmt.setString(3, dto.getC_age());
-			psmt.setString(4, dto.getC_school());
+			psmt.setString(1, dto.getC_id());
+			psmt.setString(2, dto.getC_name());
+			psmt.setString(3, dto.getC_gender());
+			psmt.setString(4, dto.getC_age());
+			psmt.setString(5, dto.getC_school());
 			
 			cnt = psmt.executeUpdate();
 			
@@ -114,6 +117,41 @@ public class childDAO {
 		return cnt;
 		
 		
+	}
+	
+	
+public childDTO child_check(childDTO dto) {
+		
+		conn();
+		
+		String sql = "select * from child where users_id = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getC_name());
+			
+			//select : executeQuery(ResultSet형태로 반환)
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				String child_name = rs.getString(1);
+				String child_age = rs.getString(2);
+				String child_gender = rs.getString(3);
+				String child_school = rs.getString(4);
+				
+				info = new childDTO(child_name, child_age, child_gender, child_school);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			close();
+		}
+		
+		return info;
 	}
 
 }

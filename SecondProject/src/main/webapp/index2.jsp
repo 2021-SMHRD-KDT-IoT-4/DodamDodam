@@ -1,4 +1,5 @@
 
+<%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
 
 <%@page import="COM.Model.FaqDTO"%>
@@ -31,6 +32,9 @@
 	
 	<%
 		UserDTO info = (UserDTO)session.getAttribute("login_info");
+		//UserDTO u_id = (UserDTO)session.getAttribute("user_id");
+			
+		
 		
 	%>
 
@@ -44,7 +48,7 @@
 					<nav id="nav">
 				<%if(info == null) {%>
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
-						<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
+						<a href="#contact2" class="icon brands fa-twitter"><span>Join</span></a>
 						<%}else{ %>
 						<% if(info.getId().equals("admin")){%>
 						
@@ -144,7 +148,11 @@
 								
 								<% 
 							
-									info = (UserDTO)session.getAttribute("login_info");
+									info = (UserDTO)session.getAttribute("login_info"); //session 불러오기(사용하기)
+									
+									childDTO c_info = (childDTO)session.getAttribute("child_info");
+									
+									
 								%>
 								
 								<div>
@@ -172,22 +180,25 @@
 								<header>
 									<h2>Kids page</h2>
 								</header>
-								
-								
 								<div>
+								<%if(info!=null){ %>
+								<%=info.getId()%>
+								<%} %>
+								
 										<table border="1">
 											<tr>
-												<td>이름</td>
-												<td>아이디</td>
-												<td>비밀번호</td>
-												<td>휴대폰번호</td>
+												<td>아이이름</td>
+												<td>나이</td>
+												<td>성별</td>
+												<td>학교</td>
 											</tr>
-											<%if(info!=null){ %>
+											<%-- <%if(info == info && c_info != null){ %>  --%>
+											<%if(c_info != null){ %>
 											<tr align="center">
-												<td><%=info.getName()%></td>
-												<td><%=info.getId()%></td>
-												<td><%=info.getPw()%></td>
-												<td><%=info.getTel()%></td>
+												<td><%=c_info.getC_name()%></td>
+												<td><%=c_info.getC_age()%></td>
+												<td><%=c_info.getC_gender()%></td>
+												<td><%=c_info.getC_school()%></td>
 											</tr>
 											<%} %>	
 											<hr>					
@@ -246,7 +257,7 @@
 			
 
 
-			<!-- 회원가입 -->
+						<!-- 회원가입 -->
 							<article id="contact2" class="panel">
 								<header>
 									<h2>회원가입</h2>
@@ -274,20 +285,24 @@
 								</form>
 							</article>
 							
+						<% 
 							
+							//session.setAttribute("u_id", info.getId());	
+									
+						%>	
 							
 							
 						<!-- 아이등록 -->
 							<article id="contact3" class="panel">
 								<header>
-									<h2>아이등록</h2>
+									<h3>아이등록</h3>
 								</header>
-								<% 
-									info = (UserDTO)session.getAttribute("login_info");
-								%>
+								
 								<form action="ChildService" method="post">
+								
 									<div>
-									
+									<%if(info != null) {%>
+									<h2><%= info.getId() %></h2>
 										<div class="row">
 											<div class="col-8">
 												<input type="text" name="name" placeholder="아이이름" />
@@ -304,9 +319,11 @@
 												<input type="text" name="school" placeholder="학교" />
 											</div>
 											<div class="col-12">
-												<input type="submit" value="확인" onClick="window.location='#'" />
+												<input type="submit" value="확인"  />
 											</div>
 										</div>
+										<% session.setAttribute("u_id", info.getId()); %>
+										<%} %>
 									</div>
 								</form>
 							</article>
