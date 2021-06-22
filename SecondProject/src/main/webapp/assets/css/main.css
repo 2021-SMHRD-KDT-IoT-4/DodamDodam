@@ -25,6 +25,8 @@ section, summary, time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;}
 
+
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
@@ -67,9 +69,9 @@ input::-moz-focus-inner {
 
 input, select, textarea {
 	-moz-appearance: none;
-	-webkit-appearance: none;
+	/*-webkit-appearance: none;*/
 	-ms-appearance: none;
-	appearance: none;
+	/*appearance: none;*/
 }
 
 /* Row */

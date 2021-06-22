@@ -193,6 +193,10 @@
 								
 								</section>
 							</article>
+							
+							
+							
+							
 
 						<!-- Contact -->
 							<article id="contact" class="panel">
@@ -264,13 +268,20 @@
 								</form>
 							</article>
 							
+							
+							
+							
 						<!-- 아이등록 -->
 							<article id="contact3" class="panel">
 								<header>
 									<h2>아이등록</h2>
 								</header>
-								<form action="JoinService" method="post">
+								<% 
+									info = (UserDTO)session.getAttribute("login_info");
+								%>
+								<form action="ChildService" method="post">
 									<div>
+									
 										<div class="row">
 											<div class="col-8">
 												<input type="text" name="name" placeholder="아이이름" />
@@ -278,6 +289,7 @@
 											<div class="col-8">
 												여자<input type="radio" name="gender" value="female" >
 												남자<input type="radio" name="gender" value="male" >
+												
 											</div>
 											<div class="col-8">
 												<input type="text" name="age" placeholder="나이" />

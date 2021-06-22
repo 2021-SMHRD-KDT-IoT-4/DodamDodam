@@ -9,11 +9,8 @@ import java.util.ArrayList;
 
 public class childDAO {
 	childDTO info = null;
-	
-
 	ArrayList<childDTO> c_list = null;
-
-
+	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
@@ -24,7 +21,7 @@ public class childDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String db_url = "jdbc:oracle:thin:@192.168.0.253:1521:xe";
+			String db_url = "jdbc:oracle:thin:@192.168.0.77:1521:xe";
 			String db_id = "secondProject";
 			String db_pw = "1234";
 
@@ -87,6 +84,36 @@ public class childDAO {
 			close();
 		}
 		return c_list;
+	}
+	
+	
+	public int child_insert(childDTO dto) {
+		
+		conn();
+		
+		String sql = "insert into child values(?, ?, ?, ?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getC_name());
+			psmt.setString(2, dto.getC_gender());
+			psmt.setString(3, dto.getC_age());
+			psmt.setString(4, dto.getC_school());
+			
+			cnt = psmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+			
+		}
+		
+		return cnt;
+		
+		
 	}
 
 }
