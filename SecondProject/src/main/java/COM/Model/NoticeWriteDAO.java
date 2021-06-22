@@ -85,12 +85,14 @@ public class NoticeWriteDAO {
 
 		conn();
 
-		String sql = "select*from notice order by notice_day desc";
+		String sql = "select * from notice order by notice_day desc";
 
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-
+			
+		
+			
 			while (rs.next()) {
 				int num = rs.getInt(1);
 				String title = rs.getString(2);
@@ -100,6 +102,7 @@ public class NoticeWriteDAO {
 				dto = new NoticeDTO(num, title, writer, content, day);
 				list.add(dto);
 			}
+		
 
 		} catch (SQLException e) {
 			e.printStackTrace();

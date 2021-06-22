@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+C:\Users\smhrd\git\DodamDodam\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2123451182.index
+2353794671.index
+313429887.index
+1646198775.index
+217394304.index

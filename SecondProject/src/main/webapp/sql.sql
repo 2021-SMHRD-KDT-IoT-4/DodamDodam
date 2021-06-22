@@ -16,7 +16,7 @@ insert into child values('my', '선풍기', 'female', '210506', '쿠팡초등학교');
 
 commit;
 
-
+insert into notice VALUES(notice_seq.nextval,'준환바보','효지니','바보가 맞다2',sysdate);
 
 =======
 select * from child;

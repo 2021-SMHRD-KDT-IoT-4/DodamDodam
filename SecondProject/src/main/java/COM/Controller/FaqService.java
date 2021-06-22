@@ -23,11 +23,14 @@ public class FaqService extends HttpServlet {
 	String content = request.getParameter("faq_content");
 	String answer = request.getParameter("faq_answer");
 	
+	
+	
 	FaqDTO dto = new FaqDTO(0, title, writer, content, answer);
 	
 	FaqWriteDAO dao = new FaqWriteDAO();
-	
 	ArrayList<FaqDTO> FaqDTO = dao.showFaq();
+	int cnt = dao.upload(dto);
+	FaqDTO Fdto = dao.showOne(cnt);
 
 	
 	
