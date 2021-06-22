@@ -223,7 +223,7 @@
 											%>
 											<tr align="center">
 												<td><%=list.get(i).getFaq_seq()%></td>
-												<td><a href="viewBoard.jsp?faq_num=2"><%=list.get(i).getFaq_title()%></a></td>
+												<td><a href="viewBoard.jsp?faq_num=1"><%=list.get(i).getFaq_title()%></a></td>
 												<td><%=list.get(i).getFaq_writer()%></td>
 												<td><%=list.get(i).getFaq_content()%></td>
 												<td><%=list.get(i).getFaq_answer()%></td>
