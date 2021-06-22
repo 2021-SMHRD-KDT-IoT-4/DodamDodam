@@ -9,6 +9,13 @@ public class NoticeDTO {
 	private String notice_day; 
 	
 	
+	public NoticeDTO(String notice_title, String notice_writer, String notice_content) {
+		this.notice_title = notice_title;
+		this.notice_writer = notice_writer;
+		this.notice_content = notice_content;
+	}
+
+
 	public NoticeDTO(int notice_seq, String notice_title, String notice_writer, String notice_content,
 			String notice_day) {
 		super();

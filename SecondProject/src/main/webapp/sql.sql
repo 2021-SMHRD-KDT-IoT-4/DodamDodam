@@ -12,7 +12,7 @@ insert into CHILD values('효진이','10','여','무지개초등학교');
 
 insert into users values('관리자', 'admin', '0000', '062');
 
-
+insert into notice VALUES(notice_seq.nextval,'준환바보','효지니','바보가 맞다2',sysdate);
 
 =======
 select * from child;
