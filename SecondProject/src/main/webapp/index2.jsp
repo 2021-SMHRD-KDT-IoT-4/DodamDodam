@@ -40,22 +40,25 @@
 
 				<!-- Nav -->
 				<!-- Admin!!!!!!!!!!!!!! -->
-				<%if(info != null) {%>
 					<nav id="nav">
+				<%if(info == null) {%>
+						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
+						<%}else{ %>
 						<% if(info.getId().equals("admin")){%>
 						
 						<a href="#admin_Userinfo" class="icon solid fa-home"><span>adminUserinfo</span></a>
-						<%}else{ %>
-								
-				
-						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<%}else{ %>		
+						
 						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
 						<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
 						<% }%>
-					</nav>
 					<%} %>
+					
+					
+					
+					</nav>
 				
 		
 		
