@@ -149,11 +149,9 @@
 								<section>
 								
 								<% 
-							
 									info = (UserDTO)session.getAttribute("login_info"); //session 불러오기(사용하기)
 									
 									childDTO c_info = (childDTO)session.getAttribute("child_info");
-									
 									
 								%>
 								
@@ -335,7 +333,7 @@
 						<%
 		NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 		ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
-		System.out.print(Nlist.size());
+		//System.out.print(Nlist.size());
 		%>
 
 		<article id="board" class="panel">
