@@ -127,7 +127,7 @@
 							<%} %>
 							
 							
-							<!-- 2.모든 회원의 이메일(email),전화번호(tel),주소(address)를 출력하시오. -->
+							
 						</table>
 					</nav>		
 					<a href="index2.jsp#home" class="button next scrolly">되돌아가기</a>	
@@ -166,7 +166,7 @@
 												
 											</tr>
 											<%} %>	
-											<hr>					
+													
 										
 										</table>
 								</div>
@@ -241,42 +241,7 @@
 								</form>
 							</article>
 								
-							<!--faq 한개만 보기   -->	
-								<article id="contact4" class="panel">
-								<header>
-									<h2>FAQ 1개만 보기</h2>
-								</header>
-									<form action="#" method="post">
-										<%
-											int num = Integer.parseInt(request.getParameter("faq_num"));
-											FaqWriteDAO fdao = new FaqWriteDAO();
-											FaqDTO fdto = fdao.showOne(num);
-										%>
-
-										<div id="board">
-											<table id="list">
-												<tr>
-													<td>제목</td>
-													<td><%=fdto.getFaq_title()%></td>
-												</tr>
-												<tr>
-													<td>작성자</td>
-													<td><%=fdto.getFaq_writer()%></td>
-												</tr>
-												<tr>
-													<td colspan="2">내용</td>
-												</tr>
-												<tr>
-													<td colspan="2"><%=fdto.getFaq_content()%></td>
-												</tr>
-												<tr>
-													<td colspan="2"><a href="index2.jsp"><button>뒤로가기</button></a></td>
-												</tr>
-											</table>
-										</div>
-
-									</form>
-							</article>
+							
 								
 			
 
@@ -337,12 +302,11 @@
 									</div>
 								</form>
 							</article>
-<<<<<<< HEAD
+
 						</div>
 
-				<!-- Footer -->
-=======
-			<%
+
+					<%
 					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 					ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
 					System.out.print(Nlist.size());
@@ -392,7 +356,7 @@
 			</article>
 
 			<!-- Footer -->
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
+
 					<div id="footer">
 						<ul class="copyright">
 							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
