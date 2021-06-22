@@ -10,13 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import COM.Model.NoticeDTO;
 import COM.Model.NoticeWriteDAO;
 
-/**
- * Servlet implementation class InsertNotice
- */
 @WebServlet("/InsertNotice")
 public class InsertNotice extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		request.setCharacterEncoding("EUC-KR");
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
