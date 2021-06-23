@@ -123,7 +123,7 @@ public class childDAO {
 		
 	}
 	
-	
+
 public childDTO child_check(childDTO dto) {
 		
 		conn();
@@ -178,13 +178,13 @@ public childDTO child_check(childDTO dto) {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				//String user_id = rs.getString(1);
-				String c_name = rs.getString(1);
-				String c_age = rs.getString(2);
-				String c_gender = rs.getString(3);
-				String c_school = rs.getString(4);
+				String user_id = rs.getString(1);
+				String c_name = rs.getString(2);
+				String c_age = rs.getString(3);
+				String c_gender = rs.getString(4);
+				String c_school = rs.getString(5);
 				
-				c_dto = new childDTO(c_name, c_age, c_gender, c_school);
+				c_dto = new childDTO(user_id, c_name, c_age, c_gender, c_school);
 				
 				c_one_list.add(c_dto);
 			}
