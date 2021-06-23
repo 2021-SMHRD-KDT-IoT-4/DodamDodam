@@ -231,10 +231,6 @@
 											<td><%= c_one_list.get(i).getC_age()%></td>
 											<td><%= c_one_list.get(i).getC_gender()%></td>
 											<td><%= c_one_list.get(i).getC_school()%></td>
-											
-											
-											
-													
 										</tr>
 									<%} %> 
                                  <hr>         
