@@ -1,4 +1,5 @@
 
+<%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
 
@@ -62,6 +63,7 @@
 					<%} %>
 					
 					</nav>
+					
 					
 					
 				
@@ -147,15 +149,24 @@
 								<section>
 								
 								<% 
-									info = (UserDTO)session.getAttribute("login_info"); //session 불러오기(사용하기)
+									//info = (UserDTO)session.getAttribute("login_info"); //session 불러오기(사용하기)
 									
 									childDTO c_info = (childDTO)session.getAttribute("child_info");
 									
+									
+									
 								%>
+								<%if(info!=null){ 
+								
+									childDAO c_dao = new childDAO();
+									ArrayList<childDTO> c_one_list = c_dao.Child_one_info(info);
+								
+								%>
+								
 								
 								<div>
 										<table border="1">
-											<tr>
+											<tr align="center">
 												<td>이름</td>
 												<td>아이디</td>
 												<td>비밀번호</td>
@@ -175,22 +186,22 @@
 										</table>
 								</div>
 								
+								
 								<header>
 									<h2>Kids page</h2>
 								</header>
 								<div>
-								<%if(info!=null){ %>
-								<%=info.getId()%>
-								<%} %>
+								
 								
 										<table border="1">
-											<tr>
+											<tr align="center">
 												<td>아이이름</td>
 												<td>나이</td>
 												<td>성별</td>
 												<td>학교</td>
 											</tr>
 											<%-- <%if(info == info && c_info != null){ %>  --%>
+
 											<%if(c_info != null){ %>
 											<tr align="center">
 												<td><%=c_info.getC_name()%></td>
@@ -199,7 +210,28 @@
 												<td><%=c_info.getC_school()%></td>
 											</tr>
 											<%} %>	
+											<hr>			
+											
+											
+												<form action="LogoutService">
+												<input type="submit" value="  로그아웃  " />
+												</form>
+												
+
+											<%-- <%if(c_info != null){ %> --%>
+											<%for(int i = 0; i < c_one_list.size(); i++) { %>
+												<tr align="center">
+													
+													<td><%= c_one_list.get(i).getC_name()%></td>
+													<td><%= c_one_list.get(i).getC_age()%></td>
+													<td><%= c_one_list.get(i).getC_gender()%></td>
+													<td><%= c_one_list.get(i).getC_school()%></td>
+													
+												</tr>
+												<%} %>
+											<%-- <%} %>	--%>
 											<hr>					
+
 										
 										</table>
 								</div>
@@ -229,14 +261,14 @@
 												<td>제목</td>
 												<td>글쓴이</td>
 												<td>내용</td>
-												<td>답변</td>
+												<td>날짜</td>
 											</tr>
 											<%
 											for (int i = 0; i <list.size(); i++){
 											%>
 											<tr align="center">
 												<td><%=list.get(i).getFaq_seq()%></td>
-												<td><a href="viewFaq.jsp?faq_num=<%= list.get(i).getFaq_seq() %>">
+												<td><a href="viewFaq.jsp#contact?faq_num=<%=list.get(i).getFaq_seq()%>">
 												<%=list.get(i).getFaq_title()%></a>
 												</td>
 												<td><%=list.get(i).getFaq_writer()%></td>
@@ -250,9 +282,9 @@
 										</table>
 									</div>
 								</form>
-							</article>
+							</article> 
 								
-							
+					
 								
 			
 
@@ -285,11 +317,6 @@
 								</form>
 							</article>
 							
-						<% 
-							
-							//session.setAttribute("u_id", info.getId());	
-									
-						%>	
 							
 							
 						<!-- 아이등록 -->
@@ -329,20 +356,50 @@
 							</article>
 
 						<%
-		NoticeWriteDAO Noticedao = new NoticeWriteDAO();
-		ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
-		//System.out.print(Nlist.size());
-		%>
+							NoticeWriteDAO Noticedao = new NoticeWriteDAO();
+							ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
+							//System.out.print(Nlist.size());
+						%>
 
-		<article id="board" class="panel">
-			<header>
-				<h2>Notice</h2>
-				<a href="insertBoard.jsp">글 작성</a>
-			</header>
-			<form action="#" method="post">
+							<article id="board" class="panel">
+							<header>
+								<h2>Notice</h2>
+									<a href="insertBoard.jsp">글 작성</a>
+							</header>
+							<form action="#" method="post">
 
 
 
+<<<<<<< HEAD
+							<section class="article-list table-common con">
+									<table border="1">
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>제목</th>
+											<th>글쓴이</th>
+											<th>내용</th>
+											<th>날짜</th>
+										</tr>
+									</thead>
+									<tbody>
+									<%
+										for (int i = 0; i < Nlist.size(); i++) {
+									%>
+										<tr>
+											<td><%=Nlist.get(i).getNotice_seq()%></td>
+											<td><a href="detailsBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>"><%=Nlist.get(i).getNotice_title()%></a></td>
+											<td><%=Nlist.get(i).getNotice_writer()%></td>
+											<td><%=Nlist.get(i).getNotice_content()%></td>
+											<td><%=Nlist.get(i).getNotice_day()%></td>
+										</tr>
+									<%}%>
+								</tbody>
+							</table>
+						</section>
+					</form>
+				</article>
+=======
 				<section class="article-list table-common con">
 					<table border="1">
 						<thead>
@@ -369,13 +426,14 @@
 
 							</tr>
 							<%
-							}
+							}}
 							%>
 						</tbody>
 					</table>
 				</section>
 			</form>
 		</article>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
 						</div>
 
 

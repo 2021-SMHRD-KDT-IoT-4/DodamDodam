@@ -7,11 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 
 
 public class childDAO {
 	childDTO info = null;
 	ArrayList<childDTO> c_list = null;
+	ArrayList<childDTO> c_one_list = null;
+	childDTO c_dto = null;
 	
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -152,6 +156,46 @@ public childDTO child_check(childDTO dto) {
 		}
 		
 		return info;
+	}
+
+
+
+	public ArrayList<childDTO> Child_one_info(UserDTO dto) {
+
+		c_one_list = new ArrayList<childDTO>();
+		
+		
+		
+		conn();
+
+		try {
+			String sql = "select * from child where users_id = ?";
+
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				//String user_id = rs.getString(1);
+				String c_name = rs.getString(1);
+				String c_age = rs.getString(2);
+				String c_gender = rs.getString(3);
+				String c_school = rs.getString(4);
+				
+				c_dto = new childDTO(c_name, c_age, c_gender, c_school);
+				
+				c_one_list.add(c_dto);
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return c_one_list;
 	}
 
 }
