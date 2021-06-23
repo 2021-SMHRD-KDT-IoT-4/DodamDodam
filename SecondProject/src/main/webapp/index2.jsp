@@ -26,6 +26,29 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+      
+      <style type="text/css">
+      	#btn_logout{
+      		position: absolute;
+   			top: 490px;
+    		left: 150px;
+      	
+      	}
+      	#btn_delete{
+      		position: absolute;
+   			top: 490px;
+    		left: 240px;
+      	
+      	}
+      	#btn_drop{
+      		position: absolute;
+   			top: 490px;
+    		left: 400px;
+      	
+      	}
+      	
+      </style>
+      
    </head>
    <body class="is-preload">
    
@@ -238,15 +261,15 @@
                                  
                                 
                                     <form action="LogoutService">
-                                    	<input type="submit" style="float:right;" value="  ·Î±×¾Æ¿ô  " />
+                                    	<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
                                     </form>
                                     
                                     <form action="ChilddeleteService">
-                                    	<input type="submit" style="float:right;" value="  ¾ÆÀÌ Á¤º¸ »èÁ¦   " />
+                                    	<input type="submit" id="btn_delete" value="  ¾ÆÀÌ Á¤º¸ »èÁ¦   " />
                                     </form>
                                     
                                     <form action="UserdeleteService">
-                                    	<input type="submit" style="float:right;" value="  È¸¿ø Å»Åð   " />
+                                    	<input type="submit" id="btn_drop" value="  È¸¿ø Å»Åð   " />
                                     </form>
                                   
 
