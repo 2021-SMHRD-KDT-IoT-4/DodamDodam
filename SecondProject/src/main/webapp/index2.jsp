@@ -258,11 +258,6 @@
 										</tr>
 									<%} %> 
                                  <hr>         
-                                 
-                                 
-                                 
-                                 
-                                
                                     <form action="LogoutService">
                                     	<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
                                     </form>
@@ -274,14 +269,6 @@
                                     <form action="UserdeleteService">
                                     	<input type="submit" id="btn_drop" value="  È¸¿ø Å»Åð   " />
                                     </form>
-                                  
-<<<<<<< HEAD
-
-
-                                
-
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
                               
                               </table>
                         </div>
@@ -318,12 +305,7 @@
                                  %>
                                  <tr align="center">
                                     <td><%=list.get(i).getFaq_seq()%></td>
-<<<<<<< HEAD
                                     <td><a href="viewFaq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
-=======
-                                    <td><a href="viewFaq.jsp#faq?faq_num=<%=list.get(i).getFaq_seq()%>">
-                                    
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
                                     <%=list.get(i).getFaq_title()%></a>
                                     </td>
                                     <td><%=list.get(i).getFaq_writer()%></td>
