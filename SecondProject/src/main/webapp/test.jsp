@@ -234,8 +234,6 @@
 										<td>ÇÐ±³</td>
 									</tr>
 									
-									<%-- <%if(info == info && c_info != null){ %>  --%>
-									<%-- <%if(c_info != null){ %> --%>
 									<%for(int i = 0; i < c_one_list.size(); i++) { %>
 										<tr align="center">
 													

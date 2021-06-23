@@ -1,6 +1,4 @@
-
 <%@page import="COM.Model.UserDAO"%>
-
 <%@page import="COM.Model.FaqDTO"%>
 <%@page import="COM.Model.FaqWriteDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -30,7 +28,8 @@
 	
 	<%
 		UserDTO info = (UserDTO)session.getAttribute("login_info");
-		
+		//int num = Integer.parseInt(request.getParameter("faq_num"));
+		//System.out.print(num);		
 	%>
 
 
@@ -38,42 +37,42 @@
 		<!-- Wrapper-->
 			<div id="wrapper">
 
-				
+				<!-- Nav -->
+				<!-- Admin!!!!!!!!!!!!!! -->
 					<nav id="nav">
-						<%if(info == null) {%>
-							<a href="#" class="icon solid fa-home"><span>Home</span></a>
-							<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
-								<%}else{ %>
-									<% if(info.getId().equals("admin")){%>
+				<%if(info == null) {%>
+						<a href="#main" class="icon solid fa-home"><span>메인</span></a>
+						<a href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
+						<%}else{ %>
+						<% if(info.getId().equals("admin")){%>
 						
-										<a href="#admin_Userinfo" class="icon solid fa-home"><span>adminUserinfo</span></a>
-										<%}else{ %>		
-						
-											<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
-											<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-											<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
-										<% }%>
-							<a href="#board" class="icon brands fa-twitter"><span>게시판</span></a>
+						<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
+						<%}else{ %>		
+						<a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+						<% }%>
 					<%} %>
 					
 					
-					
 					</nav>
+					
 					<div id="main">
 					
 				<!--faq 한개만 보기   -->   
-                        <article id="" class="panel">
+                        <article id="FAQ" class="panel">
                         <header>
                            <h2>FAQ 1개만 보기</h2>
                         </header>
-                           <form action="" method="post">
+                   
                               <%
-                                 int num = Integer.parseInt(request.getParameter("faq_num"));
+                           
                                  FaqWriteDAO fdao = new FaqWriteDAO();
-                                 FaqDTO fdto = fdao.showOne(num);
+                                 FaqDTO fdto = fdao.showOne(5);
                               %>
+							
 
-                              <div id="">
+
+
+							<div id="">
                                  <table id="list">
                                     <tr>
                                        <td>제목</td>
@@ -90,12 +89,12 @@
                                        <td colspan="2"><%=fdto.getFaq_content()%></td>
                                     </tr>
                                     <tr>
-                                       <td colspan="2"><a href="index2.jsp#work"><button>뒤로가기</button></a></td>
+                                       <td colspan="2"><a href="index2.jsp#mypage"><button>뒤로가기</button></a></td>
                                     </tr>
                                  </table>
                               </div>
+                              
 
-                           </form>
                      </article>
 		
 		

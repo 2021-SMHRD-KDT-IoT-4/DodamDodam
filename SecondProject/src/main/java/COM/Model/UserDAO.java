@@ -7,9 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
-
-
 public class UserDAO {
 	UserDTO info = null;
 	UserDTO dto = null;
@@ -20,7 +17,6 @@ public class UserDAO {
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
-
 
 	public void conn() {
 
@@ -62,7 +58,6 @@ public class UserDAO {
 
 	}
 
-
 	public ArrayList<UserDTO> All_info() {
 
 		list = new ArrayList<UserDTO>();
@@ -80,7 +75,7 @@ public class UserDAO {
 				String id = rs.getString(2);
 				String pw = rs.getString(3);
 				String tel = rs.getString(4);
-				info = new UserDTO(name,id, pw, tel);
+				info = new UserDTO(name, id, pw, tel);
 				list.add(info);
 			}
 
@@ -92,7 +87,6 @@ public class UserDAO {
 		}
 		return list;
 	}
-	
 
 	public UserDTO my_info(UserDTO dto) {
 
@@ -109,96 +103,88 @@ public class UserDAO {
 			psmt.setString(4, dto.getTel());
 
 			rs = psmt.executeQuery();
-			
+
 			if (rs.next()) {
 
-				String name = rs.getString(1); 
-				String id = rs.getString(2);
-				String pw = rs.getString(3);
-				String tel = rs.getString(4);
-
-			info = new UserDTO(name, id, pw, tel);
-			}
-
-
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return info;
-
-	}
-	
-	
-	public int join(UserDTO dto) {
-		
-		conn();
-		
-		String sql = "insert into users values(?, ?, ?, ?)";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			
-			psmt.setString(1, dto.getName());
-			psmt.setString(2, dto.getId());
-			psmt.setString(3, dto.getPw());
-			psmt.setString(4, dto.getTel());
-			
-			cnt = psmt.executeUpdate();
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-			
-		}
-		
-		return cnt;
-		
-		
-	}
-	
-	
-	public UserDTO login(UserDTO dto) {
-		
-		conn();
-		
-		String sql = "select * from users where users_id = ? and users_pw = ?";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			
-			psmt.setString(1, dto.getId());
-			psmt.setString(2, dto.getPw());
-			
-			rs = psmt.executeQuery();
-			
-			if(rs.next()) {
 				String name = rs.getString(1);
 				String id = rs.getString(2);
 				String pw = rs.getString(3);
 				String tel = rs.getString(4);
-				
+
 				info = new UserDTO(name, id, pw, tel);
-				
 			}
-			
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return info;
+
+	}
+
+	public int join(UserDTO dto) {
+
+		conn();
+
+		String sql = "insert into users values(?, ?, ?, ?)";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getId());
+			psmt.setString(3, dto.getPw());
+			psmt.setString(4, dto.getTel());
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+
+		return cnt;
+
+	}
+
+	public UserDTO login(UserDTO dto) {
+
+		conn();
+
+		String sql = "select * from users where users_id = ? and users_pw = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				String name = rs.getString(1);
+				String id = rs.getString(2);
+				String pw = rs.getString(3);
+				String tel = rs.getString(4);
+
+				info = new UserDTO(name, id, pw, tel);
+
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		
+
 		return info;
-		
-		
-		
-		
+
 	}
-	
+
 	public int modify_info(UserDTO dto) {
 		conn();
 
@@ -207,7 +193,7 @@ public class UserDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, dto.getPw()); 
+			psmt.setString(1, dto.getPw());
 			psmt.setString(2, dto.getTel());
 			psmt.setString(3, dto.getName());
 			psmt.setString(4, dto.getId());
@@ -222,41 +208,84 @@ public class UserDAO {
 		}
 		return cnt;
 	}
-	
-	
+
 	public UserDTO getData(String idd) {
-		 list = new ArrayList<UserDTO>();
+		list = new ArrayList<UserDTO>();
 		conn();
-		
+
 		String sql = "select * from users where users_id = ?";
-		
+
 		try {
 			psmt = conn.prepareStatement(sql);
-			
+
 			psmt.setString(1, idd);
-			
+
 			rs = psmt.executeQuery();
-			
-			if(rs.next()) {
-				
+
+			if (rs.next()) {
+
 				String name = rs.getString(1);
 				String id = rs.getString(2);
 				String pw = rs.getString(3);
 				String tel = rs.getString(4);
-				
+
 				dto = new UserDTO(name, id, pw, tel);
-				
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return dto;
 	}
+
+	public int childdelete(UserDTO dto) {
+		conn();
+
+		String sql = "delete from child where users_id=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			
+			cnt = psmt.executeUpdate();
+
+			if(cnt !=0) {
+				System.out.println("시앤티작동중");
+			}else {
+				System.out.println("시앤티 인식을 못함");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 	
-	
-	
-	
+	public int userdelete(UserDTO dto) {
+		conn();
+
+		String sql = "delete from users where users_id=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			
+			cnt = psmt.executeUpdate();
+
+			if(cnt !=0) {
+				System.out.println("시앤티작동중");
+			}else {
+				System.out.println("시앤티 인식을 못함");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
 }

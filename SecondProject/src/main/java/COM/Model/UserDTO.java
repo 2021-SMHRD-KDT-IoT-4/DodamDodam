@@ -11,7 +11,6 @@ public class UserDTO {
 	
 	
 	public UserDTO(String name, String id, String pw, String tel) {
-		super();
 		this.name = name;
 		this.id = id;
 		this.pw = pw;
@@ -22,11 +21,17 @@ public class UserDTO {
 
 
 	public UserDTO(String id, String pw) {
-		super();
 		this.id = id;
 		this.pw = pw;
 	}
 
+	
+
+
+
+	public UserDTO(String id) {
+		this.id = id;
+	}
 
 
 
