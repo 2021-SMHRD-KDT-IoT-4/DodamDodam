@@ -37,7 +37,7 @@
 		
 		%>
 
-
+<section>
 
 		<!-- Wrapper-->
 			<div id="wrapper">
@@ -48,7 +48,8 @@
 				<%if(info == null) {%>
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
 						
-						<a href="#join" class="icon brands fa-twitter"><span>Join</span></a>
+						<%--<a href="#join" class="icon brands fa-twitter"><span>Join</span></a> --%>
+						
 				<%}else{ %>
 						<% if(info.getId().equals("admin")){%>
 						
@@ -100,7 +101,8 @@
 						</header>
 					</article>
 							
-							
+
+
 							
 				<!-- 회원가입 -->
 					<article id="join" class="panel">
@@ -178,7 +180,7 @@
 							<h2>My page</h2>
 						</header>
 								
-						<section>
+						<%--<section> --%>
 								
 							<% 
 								//info = (UserDTO)session.getAttribute("login_info"); //session 불러오기(사용하기)
@@ -251,7 +253,7 @@
 								</table>
 							</div>
 								
-						</section>
+						<%--</section> --%>
 					</article>
 							
 							
@@ -388,7 +390,7 @@
 						</section>
 					</form>
 				</article>
-	
+	<section>
 
 				<!-- Footer -->
 

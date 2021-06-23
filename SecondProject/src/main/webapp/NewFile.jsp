@@ -36,8 +36,7 @@
 			//UserDTO u_id = (UserDTO)session.getAttribute("user_id");
 		
 		%>
-
-
+		
 
 		<!-- Wrapper-->
 			<div id="wrapper">
@@ -48,7 +47,8 @@
 				<%if(info == null) {%>
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
 						
-						<a href="#join" class="icon brands fa-twitter"><span>Join</span></a>
+						<%--<a href="#join" class="icon brands fa-twitter"><span>Join</span></a> --%>
+						
 				<%}else{ %>
 						<% if(info.getId().equals("admin")){%>
 						
@@ -105,7 +105,7 @@
 							
 							
 				<!-- 회원가입 -->
-					<article id="join" class="panel">
+					<article id="join" class="panel intro">
 						<header>
 							<h2>회원가입</h2>
 						</header>
