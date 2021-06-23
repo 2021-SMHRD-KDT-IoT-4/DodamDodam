@@ -30,7 +30,8 @@
 	
 	<%
 		UserDTO info = (UserDTO)session.getAttribute("login_info");
-		
+		//int num = Integer.parseInt(request.getParameter("faq_num"));
+		//System.out.print(num);		
 	%>
 
 
@@ -44,15 +45,15 @@
 							<a href="#" class="icon solid fa-home"><span>Home</span></a>
 							<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
 								<%}else{ %>
-									<% if(info.getId().equals("admin")){%>
+									
 						
 										<a href="#admin_Userinfo" class="icon solid fa-home"><span>adminUserinfo</span></a>
-										<%}else{ %>		
+										
 						
 											<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
-											<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
+											<a href="#contact?faq_num=" class="icon solid fa-envelope"><span>Contact</span></a>
 											<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
-										<% }%>
+								
 							<a href="#board" class="icon brands fa-twitter"><span>게시판</span></a>
 					<%} %>
 					
@@ -62,18 +63,21 @@
 					<div id="main">
 					
 				<!--faq 한개만 보기   -->   
-                        <article id="" class="panel">
+                        <article id="contact" class="panel">
                         <header>
                            <h2>FAQ 1개만 보기</h2>
                         </header>
-                           <form action="" method="post">
+                   
                               <%
-                                 int num = Integer.parseInt(request.getParameter("faq_num"));
+                           
                                  FaqWriteDAO fdao = new FaqWriteDAO();
-                                 FaqDTO fdto = fdao.showOne(num);
+                                 FaqDTO fdto = fdao.showOne(5);
                               %>
+							
 
-                              <div id="">
+
+
+							<div id="">
                                  <table id="list">
                                     <tr>
                                        <td>제목</td>
@@ -94,8 +98,8 @@
                                     </tr>
                                  </table>
                               </div>
+                              
 
-                           </form>
                      </article>
 		
 		
