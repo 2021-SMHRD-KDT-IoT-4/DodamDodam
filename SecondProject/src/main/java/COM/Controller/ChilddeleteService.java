@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import COM.Model.UserDAO;
 import COM.Model.UserDTO;
 
-@WebServlet("/UserdeleteService")
+@WebServlet("/ChilddeleteService")
 public class ChilddeleteService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +20,7 @@ public class ChilddeleteService extends HttpServlet {
 //		String id = request.getParameter("id");
 		
 		HttpSession session = request.getSession(); 
+		
 		UserDTO result = (UserDTO) session.getAttribute("login_info");
 		String id = result.getId();
 		

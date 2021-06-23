@@ -1,4 +1,3 @@
-
 <%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
@@ -33,8 +32,6 @@
 	<%
 		UserDTO info = (UserDTO)session.getAttribute("login_info");
 		//UserDTO u_id = (UserDTO)session.getAttribute("user_id");
-			
-		
 		
 	%>
 
@@ -61,6 +58,8 @@
 						<% }%>
 						<a href="#board" class="icon Regular fa-list-alt"><span>게시판</span></a>
 					<%} %>
+					
+					
 					
 					</nav>
 					
@@ -104,6 +103,34 @@
 									
 							</article>
 							
+							
+							<!-- 회원가입 -->
+							<article id="join" class="panel">
+								<header>
+									<h2>회원가입</h2>
+								</header>
+								<form action="JoinService" method="post">
+									<div>
+										<div class="row">
+											<div class="col-8">
+												<input type="text" name="id" placeholder="ID" />
+											</div>
+											<div class="col-8">
+												<input type="text" name="pw" placeholder="PW" />
+											</div>
+											<div class="col-8">
+												<input type="text" name="name" placeholder="이름" />
+											</div>
+												<div class="col-8">
+												<input type="text" name="tel" placeholder="핸드폰" />
+											</div>
+											<div class="col-12">
+												<input type="submit" value="확인" onClick="window.location='#main'" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
 							
 							<%
 								UserDAO Udao = new UserDAO();
@@ -291,40 +318,6 @@
 								</form>
 							</article> 
 								
-					
-								
-			
-
-
-						<!-- 회원가입 -->
-							<article id="join" class="panel">
-								<header>
-									<h2>회원가입</h2>
-								</header>
-								<form action="JoinService" method="post">
-									<div>
-										<div class="row">
-											<div class="col-8">
-												<input type="text" name="id" placeholder="ID" />
-											</div>
-											<div class="col-8">
-												<input type="text" name="pw" placeholder="PW" />
-											</div>
-											<div class="col-8">
-												<input type="text" name="name" placeholder="이름" />
-											</div>
-												<div class="col-8">
-												<input type="text" name="tel" placeholder="핸드폰" />
-											</div>
-											<div class="col-12">
-												<input type="submit" value="확인" onClick="window.location='#main'" />
-											</div>
-										</div>
-									</div>
-								</form>
-							</article>
-							
-							
 							
 						<!-- 아이등록 -->
 							<article id="child" class="panel">

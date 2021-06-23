@@ -1,6 +1,4 @@
-
 <%@page import="COM.Model.UserDAO"%>
-
 <%@page import="COM.Model.FaqDTO"%>
 <%@page import="COM.Model.FaqWriteDAO"%>
 <%@page import="java.util.ArrayList"%>

@@ -22,6 +22,7 @@ public class UserdeleteService extends HttpServlet {
 //		String id = request.getParameter("id");
 		
 		HttpSession session = request.getSession(); 
+		
 		UserDTO result = (UserDTO) session.getAttribute("login_info");
 		String id = result.getId();
 		
@@ -29,7 +30,7 @@ public class UserdeleteService extends HttpServlet {
 		UserDAO dao = new UserDAO();
 		int cnt = dao.userdelete(dto);
 		
-		
+		session.removeAttribute("login_info");
 	
 		if(cnt > 0) {
 			response.sendRedirect("index2.jsp#main");
