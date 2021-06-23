@@ -58,10 +58,8 @@
 						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
 						<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
 						<% }%>
-						<a href="#board" class="icon brands fa-twitter"><span>게시판</span></a>
+						<a href="#board" class="icon Regular fa-list-alt"><span>게시판</span></a>
 					<%} %>
-					
-					
 					
 					</nav>
 					
