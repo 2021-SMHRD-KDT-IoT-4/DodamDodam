@@ -32,20 +32,17 @@ public class LoginService extends HttpServlet {
 			
 			HttpSession session = request.getSession(); //session 선언
 			session.setAttribute("login_info", info); //session 저장
-			//session.setAttribute("user_id", info.getId());
 			
 			if(info.getId().equals("admin")) {
 				response.sendRedirect("index2.jsp#admin_Userinfo");
 			}else {
 			
-			//response.sendRedirect("main.jsp");
 			response.sendRedirect("index2.jsp#work");
 			}
 		}else {
 			System.out.println("로그인 실패!");
 			response.sendRedirect("index2.jsp#contact2");
 			
-			//response.sendRedirect("index2.jsp#");
 		}
 		
 		
