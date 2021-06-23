@@ -104,8 +104,8 @@ public class childDAO {
 			
 			psmt.setString(1, dto.getC_id());
 			psmt.setString(2, dto.getC_name());
-			psmt.setString(3, dto.getC_gender());
-			psmt.setString(4, dto.getC_age());
+			psmt.setString(3, dto.getC_age());
+			psmt.setString(4, dto.getC_gender());
 			psmt.setString(5, dto.getC_school());
 			
 			cnt = psmt.executeUpdate();
