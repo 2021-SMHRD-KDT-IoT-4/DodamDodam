@@ -24,6 +24,13 @@ public class FaqService extends HttpServlet {
 	String answer = request.getParameter("faq_answer");
 	
 	
+	request.setAttribute("seq", seq);
+	request.setAttribute("title", title);
+	request.setAttribute("writer", writer);
+	request.setAttribute("content", content);
+	request.setAttribute("answer", answer);
+	
+	
 	
 	FaqDTO dto = new FaqDTO(0, title, writer, content, answer);
 	

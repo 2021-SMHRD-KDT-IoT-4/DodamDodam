@@ -288,7 +288,7 @@
                                  %>
                                  <tr align="center">
                                     <td><%=list.get(i).getFaq_seq()%></td>
-                                    <td><a href="viewFaq.jsp#faq?faq_num=<%=list.get(i).getFaq_seq()%>">
+                                    <td><a href="viewFaq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
                                     <%=list.get(i).getFaq_title()%></a>
                                     </td>
                                     <td><%=list.get(i).getFaq_writer()%></td>
