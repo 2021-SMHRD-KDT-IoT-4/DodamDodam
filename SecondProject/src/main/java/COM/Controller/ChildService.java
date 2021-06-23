@@ -19,11 +19,9 @@ public class ChildService extends HttpServlet {
 		request.setCharacterEncoding("EUC-KR");
 		
 		HttpSession session = request.getSession();
-		//String s_id = (String)session.setAttribute("id", id);
 		
 		String id = (String)session.getAttribute("u_id"); //session 불러오기(사용하기)
 
-		//String id = request.getParameter("s_id");
 		String name = request.getParameter("name");
 		String gender = request.getParameter("gender");
 		String age = request.getParameter("age");
@@ -35,13 +33,13 @@ public class ChildService extends HttpServlet {
 		
 		int cnt = dao.child_insert(dto);
 		
-		childDTO info = dao.child_check(dto);
+		//childDTO info = dao.child_check(dto);
 		
 		if(cnt > 0) {
 			System.out.println("아이등록 성공!");
 			
 			session.setAttribute("id", id);
-			session.setAttribute("child_info", info);
+			//session.setAttribute("child_info", info);
 			
 			
 		}else {
@@ -49,8 +47,8 @@ public class ChildService extends HttpServlet {
 		}
 		response.sendRedirect("index2.jsp#work");
 		
-		System.out.println(info);
-		System.out.println(id);
+		//System.out.println(info);
+		//System.out.println(id);
 		
 	}
 
