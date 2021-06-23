@@ -26,6 +26,29 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+      
+      <style type="text/css">
+      	#btn_logout{
+      		position: absolute;
+   			top: 620px;
+    		left: 270px;
+      	
+      	}
+      	#btn_delete{
+      		position: absolute;
+   			top: 620px;
+    		left: 480px;
+      	
+      	}
+      	#btn_drop{
+      		position: absolute;
+   			top: 620px;
+    		left: 760px;
+      	
+      	}
+      	
+      </style>
+      
    </head>
    <body class="is-preload">
    
@@ -53,6 +76,7 @@
                   
                   <a href="#mypage" class="icon Regular fa-user-circle"><span>마이페이지</span></a>
                   <a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+                  
                   <a href="#child" class="icon solid fa-child"><span>아이등록</span></a>
                   <% }%>
                   <a href="#board" class="icon Regular fa-list-alt"><span>게시판</span></a>
@@ -240,21 +264,24 @@
                                  
                                 
                                     <form action="LogoutService">
-                                    	<input type="submit" style="float:right;" value="  로그아웃  " />
+                                    	<input type="submit" id="btn_logout" value="  로그아웃  " />
                                     </form>
                                     
                                     <form action="ChilddeleteService">
-                                    	<input type="submit" style="float:right;" value="  아이 정보 삭제   " />
+                                    	<input type="submit" id="btn_delete" value="  아이 정보 삭제   " />
                                     </form>
                                     
                                     <form action="UserdeleteService">
-                                    	<input type="submit" style="float:right;" value="  회원 탈퇴   " />
+                                    	<input type="submit" id="btn_drop" value="  회원 탈퇴   " />
                                     </form>
                                   
+<<<<<<< HEAD
 
 
                                 
 
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
                               
                               </table>
                         </div>
@@ -278,7 +305,7 @@
                            %>
                            <div>
                               <table border="1">
-                                 <tr>
+                                 <tr align="center">
                                  
                                     <td>번호</td>
                                     <td>제목</td>
@@ -291,7 +318,12 @@
                                  %>
                                  <tr align="center">
                                     <td><%=list.get(i).getFaq_seq()%></td>
+<<<<<<< HEAD
                                     <td><a href="viewFaq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
+=======
+                                    <td><a href="viewFaq.jsp#faq?faq_num=<%=list.get(i).getFaq_seq()%>">
+                                    
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
                                     <%=list.get(i).getFaq_title()%></a>
                                     </td>
                                     <td><%=list.get(i).getFaq_writer()%></td>
@@ -306,6 +338,47 @@
                            </div>
                         </form>
                      </article> 
+                     
+                     
+                     <!-- FAQ content-->
+                     <!--faq 한개만 보기   -->   
+                        <article id="FAQ" class="panel">
+                        <header>
+                           <h2>FAQ 1개만 보기</h2>
+                        </header>
+                   
+                              <%
+                           
+                                 FaqWriteDAO fdao = new FaqWriteDAO();
+                                 FaqDTO fdto = fdao.showOne(5);
+                              %>
+
+							<div id="">
+                                 <table id="list">
+                                    <tr>
+                                       <td>제목</td>
+                                       <td><%=fdto.getFaq_title()%></td>
+                                    </tr>
+                                    <tr>
+                                       <td>작성자</td>
+                                       <td><%=fdto.getFaq_writer()%></td>
+                                    </tr>
+                                    <tr>
+                                       <td colspan="2">내용</td>
+                                    </tr>
+                                    <tr>
+                                       <td colspan="2"><%=fdto.getFaq_content()%></td>
+                                    </tr>
+                                    <tr>
+                                       <td colspan="2"><a href="index2.jsp#mypage"><button>뒤로가기</button></a></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                              
+
+                     </article>
+                     
+                     
                         
                      
                   <!-- 아이등록 -->
@@ -370,7 +443,7 @@
             <section class="article-list table-common con">
                <table border="1">
                   <thead>
-                     <tr>
+                     <tr align="center">
                         <th>번호</th>
                         <th>제목</th>
                         <th>글쓴이</th>
@@ -382,7 +455,7 @@
                      <%
                      for (int i = 0; i < Nlist.size(); i++) {
                      %>
-                     <tr>
+                     <tr align="center">
                         <td><%=Nlist.get(i).getNotice_seq()%></td>
                         <td><a
                            href="detailsBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">
