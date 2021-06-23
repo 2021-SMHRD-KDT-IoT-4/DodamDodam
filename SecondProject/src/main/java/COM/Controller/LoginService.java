@@ -37,11 +37,11 @@ public class LoginService extends HttpServlet {
 				response.sendRedirect("index2.jsp#admin_Userinfo");
 			}else {
 			
-			response.sendRedirect("index2.jsp#work");
+			response.sendRedirect("index2.jsp#mypage");
 			}
 		}else {
 			System.out.println("로그인 실패!");
-			response.sendRedirect("index2.jsp#contact2");
+			response.sendRedirect("index2.jsp#join");
 			
 		}
 		

@@ -39,31 +39,28 @@
 		<!-- Wrapper-->
 			<div id="wrapper">
 
-				
+				<!-- Nav -->
+				<!-- Admin!!!!!!!!!!!!!! -->
 					<nav id="nav">
-						<%if(info == null) {%>
-							<a href="#" class="icon solid fa-home"><span>Home</span></a>
-							<a href="#contact2" class="icon brands fa-twitter"><span>Twitter</span></a>
-								<%}else{ %>
-									
+				<%if(info == null) {%>
+						<a href="#main" class="icon solid fa-home"><span>메인</span></a>
+						<a href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
+						<%}else{ %>
+						<% if(info.getId().equals("admin")){%>
 						
-										<a href="#admin_Userinfo" class="icon solid fa-home"><span>adminUserinfo</span></a>
-										
-						
-											<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
-											<a href="#contact?faq_num=" class="icon solid fa-envelope"><span>Contact</span></a>
-											<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
-								
-							<a href="#board" class="icon brands fa-twitter"><span>게시판</span></a>
+						<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
+						<%}else{ %>		
+						<a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+						<% }%>
 					<%} %>
 					
 					
-					
 					</nav>
+					
 					<div id="main">
 					
 				<!--faq 한개만 보기   -->   
-                        <article id="contact" class="panel">
+                        <article id="FAQ" class="panel">
                         <header>
                            <h2>FAQ 1개만 보기</h2>
                         </header>
@@ -94,7 +91,7 @@
                                        <td colspan="2"><%=fdto.getFaq_content()%></td>
                                     </tr>
                                     <tr>
-                                       <td colspan="2"><a href="index2.jsp#work"><button>뒤로가기</button></a></td>
+                                       <td colspan="2"><a href="index2.jsp#mypage"><button>뒤로가기</button></a></td>
                                     </tr>
                                  </table>
                               </div>

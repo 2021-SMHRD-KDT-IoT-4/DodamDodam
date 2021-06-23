@@ -47,17 +47,17 @@
 				<!-- Admin!!!!!!!!!!!!!! -->
 					<nav id="nav">
 				<%if(info == null) {%>
-						<a href="#" class="icon solid fa-home"><span>Home</span></a>
-						<a href="#contact2" class="icon brands fa-twitter"><span>Join</span></a>
+						<a href="#main" class="icon solid fa-home"><span>메인</span></a>
+						<a href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
 						<%}else{ %>
 						<% if(info.getId().equals("admin")){%>
 						
-						<a href="#admin_Userinfo" class="icon solid fa-home"><span>adminUserinfo</span></a>
+						<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
 						<%}else{ %>		
 						
-						<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
-						<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-						<a href="#contact3" class="icon brands fa-twitter"><span>child</span></a>
+						<a href="#mypage" class="icon Regular fa-user-circle"><span>마이페이지</span></a>
+						<a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+						<a href="#child" class="icon solid fa-child"><span>아이등록</span></a>
 						<% }%>
 						<a href="#board" class="icon Regular fa-list-alt"><span>게시판</span></a>
 					<%} %>
@@ -73,7 +73,7 @@
 					<div id="main">
 
 						<!-- Me -->
-							<article id="home" class="panel intro">
+							<article id="main" class="panel intro">
 								<header>
 								<form action="LoginService" method="post">
 									<div>
@@ -89,7 +89,7 @@
 											</div>
 								
 												<div class="col-6 col-6-medium">
-												<input type="button" value="회원가입" onClick="window.location='#contact2'" />
+												<input type="button" value="회원가입" onClick="window.location='#join'" />
 												</div>
 									</div>
 								</form>
@@ -134,14 +134,14 @@
 							
 						</table>
 					</nav>		
-					<a href="index2.jsp#home" class="button next scrolly">되돌아가기</a>	
+					<a href="LogoutService" class="button next scrolly">로그아웃</a>	
 								
 							</article>
 	
 						
 							
-						<!-- Work -->
-							<article id="work" class="panel">
+						<!-- mypage -->
+							<article id="mypage" class="panel">
 								<header>
 									<h2>My page</h2>
 								</header>
@@ -181,6 +181,7 @@
 												
 											</tr>
 											<%} %>	
+											
 													
 										
 										</table>
@@ -216,6 +217,12 @@
 												<form action="LogoutService">
 												<input type="submit" value="  로그아웃  " />
 												</form>
+												<form action="ChilddeleteService">
+												<input type="submit" value="  아이 정보 삭제   " />
+												</form>
+												<form action="UserdeleteService">
+												<input type="submit" value="  회원 탈퇴   " />
+												</form>
 												
 
 											<%-- <%if(c_info != null){ %> --%>
@@ -243,8 +250,8 @@
 							
 							
 
-						<!-- Contact -->
-							<article id="contact" class="panel">
+						<!-- FAQ -->
+							<article id="faq" class="panel">
 								<header>
 									<h2>FAQ</h2>
 								</header>
@@ -268,7 +275,7 @@
 											%>
 											<tr align="center">
 												<td><%=list.get(i).getFaq_seq()%></td>
-												<td><a href="viewFaq.jsp#contact?faq_num=<%=list.get(i).getFaq_seq()%>">
+												<td><a href="viewFaq.jsp#faq?faq_num=<%=list.get(i).getFaq_seq()%>">
 												<%=list.get(i).getFaq_title()%></a>
 												</td>
 												<td><%=list.get(i).getFaq_writer()%></td>
@@ -290,7 +297,7 @@
 
 
 						<!-- 회원가입 -->
-							<article id="contact2" class="panel">
+							<article id="join" class="panel">
 								<header>
 									<h2>회원가입</h2>
 								</header>
@@ -310,7 +317,7 @@
 												<input type="text" name="tel" placeholder="핸드폰" />
 											</div>
 											<div class="col-12">
-												<input type="submit" value="확인" onClick="window.location='#'" />
+												<input type="submit" value="확인" onClick="window.location='#main'" />
 											</div>
 										</div>
 									</div>
@@ -320,7 +327,7 @@
 							
 							
 						<!-- 아이등록 -->
-							<article id="contact3" class="panel">
+							<article id="child" class="panel">
 								<header>
 									<h3>아이등록</h3>
 								</header>
@@ -370,36 +377,9 @@
 
 
 
-<<<<<<< HEAD
-							<section class="article-list table-common con">
-									<table border="1">
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>제목</th>
-											<th>글쓴이</th>
-											<th>내용</th>
-											<th>날짜</th>
-										</tr>
-									</thead>
-									<tbody>
-									<%
-										for (int i = 0; i < Nlist.size(); i++) {
-									%>
-										<tr>
-											<td><%=Nlist.get(i).getNotice_seq()%></td>
-											<td><a href="detailsBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>"><%=Nlist.get(i).getNotice_title()%></a></td>
-											<td><%=Nlist.get(i).getNotice_writer()%></td>
-											<td><%=Nlist.get(i).getNotice_content()%></td>
-											<td><%=Nlist.get(i).getNotice_day()%></td>
-										</tr>
-									<%}%>
-								</tbody>
-							</table>
-						</section>
-					</form>
-				</article>
-=======
+
+
+
 				<section class="article-list table-common con">
 					<table border="1">
 						<thead>
@@ -433,7 +413,7 @@
 				</section>
 			</form>
 		</article>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/DodamDodam.git
+
 						</div>
 
 
