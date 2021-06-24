@@ -278,9 +278,6 @@ html, body {
 
 	<%
 		UserDTO info = (UserDTO)session.getAttribute("login_info");
-		//int num = Integer.parseInt(request.getParameter("faq_num"));
-		//System.out.print(num);		
-	
 	%>
 
 
