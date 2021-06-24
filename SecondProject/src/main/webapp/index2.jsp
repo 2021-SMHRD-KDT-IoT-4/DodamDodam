@@ -255,12 +255,9 @@
 											<td><%= c_one_list.get(i).getC_age()%></td>
 											<td><%= c_one_list.get(i).getC_gender()%></td>
 											<td><%= c_one_list.get(i).getC_school()%></td>
-													
 										</tr>
 									<%} %> 
                                  <hr>         
-                                 
-                                
                                     <form action="LogoutService">
                                     	<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
                                     </form>
@@ -272,7 +269,6 @@
                                     <form action="UserdeleteService">
                                     	<input type="submit" id="btn_drop" value="  È¸¿ø Å»Åð   " />
                                     </form>
-                                  
                               
                               </table>
                         </div>
@@ -311,6 +307,7 @@
                                     <td><%=list.get(i).getFaq_seq()%></td>
                                     <td><a href="viewFaq.jsp?faq_num=<%=list.get(i).getFaq_seq()%>#faqa">
                                     
+                                    <td><a href="viewFaq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
                                     <%=list.get(i).getFaq_title()%></a>
                                     </td>
                                     <td><%=list.get(i).getFaq_writer()%></td>

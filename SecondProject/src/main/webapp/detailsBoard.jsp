@@ -306,7 +306,7 @@ html, body {
 			<%
 			} else {
 			%>
-			<a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+			<a href="#faq" class="icon Regular fa-list-alt"><span>게시판</span></a>
 			<%
 			}
 			%>
@@ -322,7 +322,6 @@ html, body {
 			<!--faq 한개만 보기   -->
 			<article id="FAQ" class="panel">
 				<header>
-					<h2>FAQ 1개만 보기</h2>
 				</header>
 
 				<body>
@@ -333,7 +332,7 @@ html, body {
 					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 					NoticeDTO dto = Noticedao.showOne(num);
 					%>
-					<h1 class="con">게시글 상세</h1>
+					<h1 class="con"></h1>
 					<section class="article-detail table-common con row">
 						<div class="article-writer cell">
 							<div class="writer-icon">이미지</div>
@@ -356,6 +355,10 @@ html, body {
 								<tr class="article-body">
 									<td colspan="4"><%=dto.getNotice_content()%></td>
 								</tr>
+								     <tr>
+                                       <td colspan="2"><a href="index2.jsp#board"><button>뒤로가기</button></a></td>
+                                    </tr>
+								
 							</tbody>
 						</table>
 					</section>

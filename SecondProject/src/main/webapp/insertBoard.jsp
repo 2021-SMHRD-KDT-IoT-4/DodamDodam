@@ -343,7 +343,15 @@ html, body {
 							<tr class="article-body">
 								<td colspan="4"></td>
 							</tr>
-							<input type="submit" value="작성하기">
+							     <tr>
+                                       <td colspan="2"><a href="index2.jsp#board"><button>뒤로가기</button></a></td>
+                                    </tr>
+							
+							     <tr>
+                                       <td colspan="2"><input type="submit" value="작성하기"></td>
+                                    </tr>
+							
+							
 						</tbody>
 					</table>
 				</form>

@@ -17,6 +17,15 @@ public class FaqDTO {
 		this.faq_answer = faq_answer;
 	}
 	
+	
+	public FaqDTO(String faq_title, String faq_writer, String faq_content) {
+		super();
+		this.faq_title = faq_title;
+		this.faq_writer = faq_writer;
+		this.faq_content = faq_content;
+	}
+
+
 	public int getFaq_seq() {
 		return faq_seq;
 	}
