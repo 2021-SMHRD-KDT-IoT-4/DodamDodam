@@ -47,6 +47,257 @@
       	
       	}
       	
+      		
+html {
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 노말라이즈 */
+body, ul, li, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a:link {
+	color: lightblue;
+}
+
+/* 라이브러리 */
+.con {
+	margin: 0 auto;
+}
+
+.img-box>img {
+	width: 100%;
+	display: block;
+}
+
+.row::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.cell {
+	float: left;
+	box-sizing: border-box;
+}
+
+.cell-right {
+	float: right;
+	box-sizing: border-box;
+}
+
+.margin-0-auto {
+	margin: 0 auto;
+}
+
+.block {
+	display: block;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.line-height-0-ch-only {
+	line-height: 0;
+}
+
+.line-height-0-ch-only>* {
+	line-height: normal;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute-left {
+	position: absolute;
+	left: 0;
+}
+
+.absolute-right {
+	position: absolute;
+	right: 0;
+}
+
+.absolute-middle {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* 커스텀 */
+/* 반응형 레이아웃 */
+.con {
+	max-width: 950px;
+}
+
+.con-min-width {
+	min-width: 320px;
+}
+
+.top-menu a {
+	text-decoration: none;
+	color: gray;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+html, body {
+	overflow-x: hidden;
+}
+
+.table-common>table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table-common .btn-box {
+	text-align: center;
+}
+
+.table-common>table th, .table-common>table td {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.article-list table {
+	border: none;
+	border-top: 2px solid lightgray;
+	border-bottom: 2px solid lightgray;
+}
+
+.article-list>table th, .article-list>table td {
+	border: none;
+}
+
+.article-list>table td {
+	border-bottom: 1px solid lightgray;
+}
+
+.article-list>table thead {
+	border-bottom: 2px solid lightgray;
+	background-color: #F5F5F5;
+}
+
+.article-detail {
+	border: 2px solid lightgray;
+}
+
+.article-detail>table {
+	border: none;
+	width: calc(100% - 100px);
+}
+
+.article-detail>table th, .article-detail>table td {
+	border: none;
+}
+
+.article-detail>table tr:not(:last-child) {
+	border-bottom: 1px solid lightgray;
+}
+
+.article-detail>table tr:not(.article-body), .article-detail>table tr:not(.article-body)>td
+	{
+	height: 20px;
+	font-size: 0.8rem;
+}
+
+.article-detail>table tr.article-title>td {
+	height: 40px;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.article-detail>table td:last-child {
+	padding-right: 100px;
+}
+
+.article-detail>.article-writer {
+	width: 100px;
+	height: 102px;
+	background-color: lightgray;
+	border-bottom: 1px solid lightgray;
+	text-align: center;
+}
+
+.article-detail>.article-writer .writer-icon {
+	margin: 0 auto;
+	background-color: white;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+
+.reply {
+	margin-top: 20px;
+	border: 2px solid lightgray;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.reply-form {
+	padding: 10px;
+}
+
+.reply-form>form input[type="text"] {
+	width: 200px;
+}
+
+.reply-form>form textarea {
+	width: calc(100% - 100px);
+	min-height: 40px;
+}
+
+.reply-form>form input[type="submit"] {
+	width: 80px;
+	height: 40px;
+	transform: translatey(-40%);
+}
+
+.reply-form>form>div:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.reply-list>table {
+	border: none;
+}
+
+.reply-list>table th {
+	display: none;
+}
+
+.reply-list>table td {
+	border: none;
+}
+
+.reply-list>table tr:nth-child(2n+1) {
+	background-color: rgba(0, 0, 0, 0.06);
+}
+
+.reply-list>table td:first-child {
+	font-weight: bold;
+}
+
+.reply-list>table td:first-child::after {
+	content: " : ";
+	font-weight: bold;
+}
+
+.panel{
+
+ border-radius: 15px;
+
+
+}
+
       </style>
       
    </head>
@@ -92,7 +343,7 @@
       
       
       <!-- Main -->
-               <div id="main">
+               <div id="main" style="border-radius : 40px">
 
                   <!-- Me -->
                      <article id="main" class="panel intro">
@@ -207,15 +458,17 @@
                         
                         %>
                         
-                        
-                        <div>
+                        <form action="#" method="post">
+					<section class="article-list table-common con">
                               <table border="1">
-                                 <tr align="center">
-                                    <td>이름</td>
-                                    <td>아이디</td>
-                                    <td>비밀번호</td>
-                                    <td>휴대폰번호</td>
-                                 </tr>
+                                 <thead>
+								<tr align="center">
+									<th>이름</th>
+									<th>아이디</th>
+									<th>비밀번호</th>
+									<th>전화번호</th>
+								</tr>
+							</thead>
                                  <%if(info!=null){ %>
                                  <tr align="center">
                                     <td><%=info.getName()%></td>
@@ -229,24 +482,25 @@
                                        
                               
                               </table>
-                        </div>
-                        
+                        	</section>
+						</form>
                         
                         <header>
                            <h2>Kids page</h2>
                         </header>
-                        <div>
                         
-                        
+                        <form action="#" method="post">
+					<section class="article-list table-common con">
                               <table border="1">
-                                 <tr align="center">
-                                    
-                                    <td>ID</td>
-                                    <td>아이이름</td>
-                                    <td>나이</td>
-                                    <td>성별</td>
-                                    <td>학교</td>
-                                 </tr>
+                                <thead>
+								<tr align="center">
+									<th>아이디</th>
+									<th>아이 이름</th>
+									<th>아이 나이</th>
+									<th>아이 성별</th>
+									<th>아이 학교</th>
+								</tr>
+							</thead>
                                 <%for(int i = 0; i < c_one_list.size(); i++) { %>
 										<tr align="center">
 													
@@ -271,60 +525,60 @@
                                     </form>
                               
                               </table>
-                        </div>
                         
                         </section>
                      </article>
-                     
-                     
-                     
-                     
 
-                  <!-- FAQ -->
-                     <article id="faq" class="panel">
-                        <header>
-                           <h2>FAQ</h2>
-                        </header>
-                        <form action="#" method="post">
-                           <%
-                           FaqWriteDAO dao = new FaqWriteDAO();
-                           ArrayList<FaqDTO> list = dao.showFaq();
-                           %>
-                           <div>
-                              <table border="1">
-                                 <tr align="center">
-                                 
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>글쓴이</td>
-                                    <td>내용</td>
-                                    <td>날짜</td>
-                                 </tr>
-                                 <%
-                                 for (int i = 0; i <list.size(); i++){
-                                 %>
-                                 <tr align="center">
-                                    <td><%=list.get(i).getFaq_seq()%></td>
-                                    <td><a href="viewFaq.jsp?faq_num=<%=list.get(i).getFaq_seq()%>#faqa">
-                                    
-                                    <td><a href="viewFaq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
-                                    <%=list.get(i).getFaq_title()%></a>
-                                    </td>
-                                    <td><%=list.get(i).getFaq_writer()%></td>
-                                    <td><%=list.get(i).getFaq_content()%></td>
-                                    <td><%=list.get(i).getFaq_answer()%></td>
-                                 </tr>
-                                 <%
-                                 }
-                                 %>                              
-                              
-                              </table>
-                           </div>
-                        </form>
-                     </article> 
-                     
-                     
-                     <!-- FAQ content-->
+
+
+
+
+			<!-- FAQ -->
+			<%
+			FaqWriteDAO dao = new FaqWriteDAO();
+			ArrayList<FaqDTO> list = dao.showFaq();
+			%>
+			<article id="faq" class="panel">
+				<header>
+					<h2>FAQ</h2>
+				</header>
+				<form action="#" method="post">
+					<section class="article-list table-common con">
+						<table border="1">
+							<thead>
+								<tr align="center">
+									<th>번호</th>
+									<th>제목</th>
+									<th>글쓴이</th>
+									<th>내용</th>
+									<th>날짜</th>
+								</tr>
+							</thead>
+							<tbody>
+							<%
+							for (int i = 0; i < list.size(); i++) {
+							%>
+							<tr align="center">
+								<td><%=list.get(i).getFaq_seq()%></td>
+
+								<td><a
+									href="viewFaq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>"> <%=list.get(i).getFaq_title()%></a>
+								</td>
+								<td><%=list.get(i).getFaq_writer()%></td>
+								<td><%=list.get(i).getFaq_content()%></td>
+								<td><%=list.get(i).getFaq_answer()%></td>
+							</tr>
+							<%
+							}
+							%>
+							</tbody>
+						</table>
+					</section>
+				</form>
+			</article>
+
+
+			<!-- FAQ content-->
                      <!--faq 한개만 보기   -->   
                         <article id="FAQ" class="panel">
                         <header>
@@ -332,10 +586,9 @@
                         </header>
                    
                               <%
-                           
-                                 FaqWriteDAO fdao = new FaqWriteDAO();
-                                 FaqDTO fdto = fdao.showOne(5);
-                              %>
+                                                 FaqWriteDAO fdao = new FaqWriteDAO();
+                                                 FaqDTO fdto = fdao.showOne(5);
+                                                 %>
 
 							<div id="">
                                  <table id="list">
@@ -409,7 +662,6 @@
                   <%
                      NoticeWriteDAO Noticedao = new NoticeWriteDAO();
                      ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
-                     //System.out.print(Nlist.size());
                   %>
 
                      <article id="board" class="panel">
@@ -418,12 +670,7 @@
                            <a href="insertBoard.jsp">글 작성</a>
                      </header>
                      <form action="#" method="post">
-
-
-
-
-
-
+         
             <section class="article-list table-common con">
                <table border="1">
                   <thead>

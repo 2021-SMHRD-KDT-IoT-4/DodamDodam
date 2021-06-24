@@ -280,7 +280,7 @@ html, body {
 
 
 		<!-- Wrapper-->
-			<div id="wrapper">
+			<div id="wrapper" >
 
 				<!-- Nav -->
 				<!-- Admin!!!!!!!!!!!!!! -->
@@ -293,20 +293,17 @@ html, body {
 						
 						<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
 						<%}else{ %>		
-						<a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+						 <a href="#board" class="icon Regular fa-list-alt"><span>게시판</span></a>
 						<% }%>
 					<%} %>
 					
 					
 					</nav>
 					
-					<div id="main">
+					<div id="main"  style="border-radius: 40px">
 					
 				<!--faq 한개만 보기   -->   
                         <article id="FAQ" class="panel">
-                        <header>
-                           <h2>FAQ 1개만 보기</h2>
-                        </header>
                    
                              <body>
 
@@ -317,10 +314,9 @@ html, body {
 			
 			%>
 			<h1 class="con">게시글 상세</h1>
-			<section class="article-detail table-common con row">
-				<div class="article-writer cell">
-					<div class="writer-icon">이미지</div>
-					<span></span>
+			<section class="article-detail table-common con row" style="border-radius: 40px" >
+				<div class="article-writer cell" style="border-radius: 40px">
+				
 				</div>
 				<form action="InsertNotice">
 					<table class="cell" border="1">
@@ -344,11 +340,11 @@ html, body {
 								<td colspan="4"></td>
 							</tr>
 							     <tr>
-                                       <td colspan="2"><a href="index2.jsp#board"><button>뒤로가기</button></a></td>
-                                    </tr>
+                                       <td colspan="2"><a href = "index2.jsp#board"><input type="button" value="뒤로가기"></a></td>                                   </tr>
 							
 							     <tr>
                                        <td colspan="2"><input type="submit" value="작성하기"></td>
+                                       
                                     </tr>
 							
 							

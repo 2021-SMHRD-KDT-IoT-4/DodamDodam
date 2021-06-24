@@ -306,7 +306,7 @@ html, body {
 			<%
 			} else {
 			%>
-			<a href="#faq" class="icon Regular fa-list-alt"><span>게시판</span></a>
+			<a href="#board" class="icon Regular fa-list-alt"><span>게시판</span></a>
 			<%
 			}
 			%>
@@ -317,7 +317,7 @@ html, body {
 
 		</nav>
 
-		<div id="main">
+		<div id="main"  style="border-radius: 40px">
 
 			<!--faq 한개만 보기   -->
 			<article id="FAQ" class="panel">
