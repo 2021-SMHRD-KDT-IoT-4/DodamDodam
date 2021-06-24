@@ -309,7 +309,7 @@
                                  %>
                                  <tr align="center">
                                     <td><%=list.get(i).getFaq_seq()%></td>
-                                    <td><a href="viewFaq.jsp#faq?faq_num=<%=list.get(i).getFaq_seq()%>">
+                                    <td><a href="viewFaq.jsp?faq_num=<%=list.get(i).getFaq_seq()%>#faqa">
                                     
                                     <%=list.get(i).getFaq_title()%></a>
                                     </td>
