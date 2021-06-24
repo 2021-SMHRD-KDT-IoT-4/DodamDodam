@@ -355,6 +355,10 @@ html, body {
 								<tr class="article-body">
 									<td colspan="4"><%=dto.getNotice_content()%></td>
 								</tr>
+								     <tr>
+                                       <td colspan="2"><a href="index2.jsp#board"><button>뒤로가기</button></a></td>
+                                    </tr>
+								
 							</tbody>
 						</table>
 					</section>
